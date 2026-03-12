@@ -23,7 +23,7 @@ window.FRD_CONFIG = {
   businessCountry: 'Italy',
 
   // Google Analytics 4
-  ga4MeasurementId: 'G-XXXXXXXXXX', // Replace with actual measurement ID
+  ga4MeasurementId: 'G-75PV2FYFJY', // Replace with actual measurement ID
 
   // Social Media Links
   social: {
