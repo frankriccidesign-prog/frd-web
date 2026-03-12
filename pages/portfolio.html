@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — Frank Ricci Design | Custom Car Design & Bodykit Projects</title>
+  <meta name="description" content="Explore Frank Ricci Design's portfolio. Custom car wraps, bodykit designs, and consulting projects featuring automotive transformation.">
+  <meta property="og:title" content="Work — Frank Ricci Design">
+  <meta property="og:description" content="See our latest car design projects: wraps, bodykits, and design consulting work.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/img/og-portfolio.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/vars.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+
+  <style>
+    /* Portfolio Page Specific Styles */
+
+    .portfolio-hero {
+      background: var(--bg);
+      color: var(--white);
+      padding: 80px 20px 60px;
+      text-align: center;
+      border-bottom: 1px solid rgba(204, 20, 23, 0.2);
+    }
+
+    .portfolio-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .portfolio-hero p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--grey);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Filter Bar */
+    .portfolio-section {
+      background: var(--bg);
+      color: var(--white);
+      padding: 60px 20px;
+    }
+
+    .portfolio-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(204, 20, 23, 0.3);
+      color: var(--white);
+      padding: 10px 20px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--red);
+      background: var(--red);
+    }
+
+    /* Project Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+
+    @media (max-width: 768px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(204, 20, 23, 0.2);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: var(--red);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(204, 20, 23, 0.15);
+    }
+
+    .project-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(204, 20, 23, 0.6);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .overlay-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-align: center;
+    }
+
+    .project-content {
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .project-category {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--red);
+    }
+
+    .project-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .project-description {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      color: var(--grey);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: rgba(204, 20, 23, 0.05);
+      border: 1px solid rgba(204, 20, 23, 0.2);
+      padding: 60px 40px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    @media (max-width: 768px) {
+      .cta-section {
+        padding: 40px 20px;
+      }
+    }
+
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 16px 40px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: #b01114;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(204, 20, 23, 0.3);
+    }
+
+    /* Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">FRD<span class="logo-dot"></span></a>
+
+      <div class="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/pages/servizi.html" class="nav-link">Services</a>
+        <a href="/pages/portfolio.html" class="nav-link active">Work</a>
+        <a href="/pages/academy.html" class="nav-link">Academy</a>
+        <a href="/pages/contatti.html" class="nav-link">Contact</a>
+      </div>
+
+      <a href="/pages/contatti.html" class="nav-cta">Let's Talk</a>
+
+      <div class="nav-toggle">
+        <span class="hamburger"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="portfolio-hero">
+    <h1>Work</h1>
+    <p>Selected projects. Every car tells a story — here's how we write them.</p>
+  </section>
+
+  <!-- Portfolio Content -->
+  <section class="portfolio-section">
+    <div class="portfolio-container">
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="bodykit">Bodykit</button>
+        <button class="filter-btn" data-filter="wrap">Wraps</button>
+        <button class="filter-btn" data-filter="consulting">Consulting</button>
+      </div>
+
+      <!-- Project Grid -->
+      <div class="project-grid" id="projectGrid">
+        <!-- Project 1 -->
+        <div class="project-card reveal" data-category="bodykit">
+          <div class="project-image">
+            <img src="/assets/img/h2-hero.jpg" alt="Hummer H2 — Law Enforcement">
+            <div class="project-overlay">
+              <div class="overlay-text">Explore Project</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-category">Bodykit</div>
+            <h3 class="project-title">Hummer H2 — Law Enforcement</h3>
+            <p class="project-description">Full bodykit + custom extensions for a one-of-a-kind build.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal" data-category="wrap">
+          <div class="project-image" style="background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);">
+            <div class="project-overlay">
+              <div class="overlay-text">Explore Project</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-category">Wrap Design</div>
+            <h3 class="project-title">BMW M5 F10 — Darkraver</h3>
+            <p class="project-description">Complete livery design for a street-legal racing aesthetic.</p>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal" data-category="wrap">
+          <div class="project-image" style="background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);">
+            <div class="project-overlay">
+              <div class="overlay-text">Explore Project</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-category">Wrap Design</div>
+            <h3 class="project-title">Kia Rio — Kuromi Edition</h3>
+            <p class="project-description">Character-driven wrap design showing versatility beyond aggressive builds.</p>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card reveal" data-category="consulting">
+          <div class="project-image" style="background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);">
+            <div class="project-overlay">
+              <div class="overlay-text">Explore Project</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-category">Design Consulting</div>
+            <h3 class="project-title">Scorpion Exo — Show Trailer</h3>
+            <p class="project-description">Brand design and trailer wrap for helmet manufacturer presence at events.</p>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card reveal" data-category="wrap">
+          <div class="project-image" style="background: linear-gradient(135deg, #252525 0%, #151515 100%);">
+            <div class="project-overlay">
+              <div class="overlay-text">Explore Project</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-category">Wrap Design</div>
+            <h3 class="project-title">Fleet Branding — Commercial</h3>
+            <p class="project-description">Consistent fleet identity across multiple vehicle types.</p>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card reveal" data-category="bodykit">
+          <div class="project-image" style="background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);">
+            <div class="project-overlay">
+              <div class="overlay-text">Coming 2026</div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-category">Bodykit</div>
+            <h3 class="project-title">GR8 I.C.S. — Bodykit Prototype</h3>
+            <p class="project-description">Coming 2026. The first FRD production bodykit.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <h2 class="cta-title">Have a project in mind?</h2>
+        <a href="/pages/contatti.html" class="btn-primary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-logo">Frank Ricci <span class="footer-design">Design</span></div>
+
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/pages/servizi.html">Services</a>
+          <a href="/pages/portfolio.html">Work</a>
+          <a href="/pages/academy.html">Academy</a>
+          <a href="/pages/contatti.html">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Frank Ricci Design. All rights reserved. P.IVA: IT04191270984</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      // Filter functionality
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+
+          // Update active button
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          // Filter cards
+          projectCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+
+            if (filter === 'all' || category === filter) {
+              card.style.display = 'flex';
+              setTimeout(() => card.classList.add('active'), 10);
+            } else {
+              card.classList.remove('active');
+              setTimeout(() => card.style.display = 'none', 300);
+            }
+          });
+        });
+      });
+
+      // Scroll reveal animation
+      const revealElements = document.querySelectorAll('.reveal');
+
+      const revealOnScroll = () => {
+        revealElements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementBottom = element.getBoundingClientRect().bottom;
+
+          if (elementTop < window.innerHeight && elementBottom > 0) {
+            element.classList.add('active');
+          }
+        });
+      };
+
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll(); // Initial check
+    });
+  </script>
+</body>
+</html>

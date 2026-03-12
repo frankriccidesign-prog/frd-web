@@ -1,0 +1,233 @@
+/* ========================================
+   Navigation & Header
+   ======================================== */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(30, 30, 30, 0.8) 100%);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all var(--transition);
+  padding: 1rem var(--spacing-md);
+}
+
+nav.scrolled {
+  padding: 0.75rem var(--spacing-md);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(30, 30, 30, 0.95) 100%);
+}
+
+/* Nav Container */
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+/* Logo */
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color var(--transition);
+}
+
+.logo:hover {
+  color: var(--red);
+}
+
+.logo-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--red);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Nav Links - Desktop */
+.nav-links {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-xl);
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--grey);
+  transition: color var(--transition);
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--white);
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--red);
+}
+
+/* CTA Button */
+.nav-cta {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--red);
+  background-color: transparent;
+  border: 1px solid var(--red);
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+
+@media (min-width: 1024px) {
+  .nav-cta {
+    display: inline-block;
+  }
+}
+
+.nav-cta:hover {
+  background-color: var(--red);
+  color: var(--bg);
+}
+
+/* Hamburger Menu - Mobile */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: var(--z-nav) + 1;
+}
+
+@media (min-width: 1024px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--white);
+  transition: all var(--transition-fast);
+  transform-origin: center;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Menu Overlay */
+.nav-menu-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(30, 30, 30, 0.98);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-nav-overlay);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition);
+}
+
+.nav-menu-mobile.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-menu-mobile a {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  transition: color var(--transition);
+}
+
+.nav-menu-mobile a:hover {
+  color: var(--red);
+}
+
+.nav-menu-mobile .nav-cta {
+  display: inline-block;
+  margin-top: var(--spacing-lg);
+}
+
+/* Additional spacer to prevent overlap with fixed nav */
+.nav-spacer {
+  height: 60px;
+}
+
+@media (max-width: 640px) {
+  .nav-spacer {
+    height: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-spacer {
+    height: 65px;
+  }
+}
+
+nav.scrolled ~ .nav-spacer {
+  height: 50px;
+}

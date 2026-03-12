@@ -1,0 +1,500 @@
+/* ========================================
+   Reusable Components
+   ======================================== */
+
+/* ========================================
+   Buttons
+   ======================================== */
+
+/* Primary Button - Red bg with clip-path */
+.btn-primary {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--bg);
+  background-color: var(--red);
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  transform: translateY(0);
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: #e01518;
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: translateY(-2px);
+}
+
+/* Outline Button - Red border with clip-path */
+.btn-outline {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--red);
+  background-color: transparent;
+  border: 1px solid var(--red);
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  text-decoration: none;
+}
+
+.btn-outline:hover {
+  background-color: var(--red);
+  color: var(--bg);
+}
+
+/* Ghost Button - Text only with arrow */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  background: none;
+  border: none;
+  padding: 0.75rem 0;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.btn-ghost::after {
+  content: '→';
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.btn-ghost:hover::after {
+  transform: translateX(4px);
+}
+
+/* ========================================
+   Section Labels & Dividers
+   ======================================== */
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--red);
+  max-width: 60px;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--border-subtle);
+  margin: var(--spacing-xl) 0;
+}
+
+.divider-subtle {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ========================================
+   Section Padding & Spacing
+   ======================================== */
+
+.section-padding {
+  padding: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: var(--spacing-2xl);
+  }
+}
+
+.section-padding-lg {
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .section-padding-lg {
+    padding: var(--spacing-2xl) var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding-lg {
+    padding: var(--spacing-2xl) var(--spacing-2xl);
+  }
+}
+
+/* ========================================
+   Scroll Reveal Animations
+   ======================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: all var(--transition-slow) ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.visible {
+  animation: revealIn var(--transition-slow) ease-out forwards;
+}
+
+@keyframes revealIn {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger effect for multiple reveals */
+.reveal:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.reveal:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.reveal:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+.reveal:nth-child(5) {
+  transition-delay: 0.4s;
+}
+
+/* ========================================
+   Cards
+   ======================================== */
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: var(--spacing-lg);
+  transition: all var(--transition);
+  position: relative;
+}
+
+.card:hover {
+  border-color: var(--red);
+  background-color: rgba(37, 37, 37, 0.8);
+}
+
+.card-header {
+  margin-bottom: var(--spacing-md);
+}
+
+.card-body {
+  margin-bottom: var(--spacing-md);
+}
+
+.card-footer {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ========================================
+   Grid Layouts
+   ======================================== */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========================================
+   Tags & Badges
+   ======================================== */
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--white);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 0.8rem;
+  transition: all var(--transition-fast);
+}
+
+.tag:hover {
+  background-color: var(--red);
+  color: var(--bg);
+  border-color: var(--red);
+}
+
+.tag-red {
+  background-color: var(--red);
+  color: var(--bg);
+  border-color: var(--red);
+}
+
+.tag-amber {
+  background-color: var(--amber);
+  color: var(--bg);
+  border-color: var(--amber);
+}
+
+/* Badge - Circular or small indicator */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 0.75rem;
+  background-color: var(--red);
+  color: var(--bg);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+.badge:hover {
+  transform: scale(1.1);
+}
+
+.badge-outline {
+  background-color: transparent;
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+/* ========================================
+   Pricing & Display
+   ======================================== */
+
+.price-tag {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--red);
+}
+
+@media (max-width: 640px) {
+  .price-tag {
+    font-size: 2rem;
+  }
+}
+
+.price-currency {
+  font-size: 0.6em;
+  vertical-align: super;
+}
+
+.price-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--grey);
+  margin-top: 0.25rem;
+}
+
+/* ========================================
+   Highlights & Emphasis
+   ======================================== */
+
+.highlight {
+  color: var(--red);
+  font-weight: 600;
+}
+
+.highlight-amber {
+  color: var(--amber);
+  font-weight: 600;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  letter-spacing: 0.05em;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--grey);
+}
+
+/* ========================================
+   Container
+   ======================================== */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* ========================================
+   Flex Utilities
+   ======================================== */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+.gap-xl { gap: var(--spacing-xl); }
+
+/* ========================================
+   Visibility & Display
+   ======================================== */
+
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+/* ========================================
+   Spacing Utilities
+   ======================================== */
+
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+
+.px-md { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.py-md { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRD Academy — Learn the Method</title>
+    <meta name="description" content="Professional wrap design education from Frank Ricci. Learn the real process behind professional wrap design.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/assets/css/vars.css">
+    <link rel="stylesheet" href="/assets/css/nav.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <!-- Page-specific styles -->
+    <style>
+        /* Hero Section */
+        .hero {
+            background: var(--bg);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(204, 20, 23, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(48px, 8vw, 96px);
+            color: var(--white);
+            margin-bottom: 30px;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(16px, 3vw, 20px);
+            color: var(--grey);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Value Proposition */
+        .value-section {
+            background: var(--bg);
+            padding: 80px 20px;
+            border-top: 1px solid rgba(204, 20, 23, 0.2);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            padding: 40px 0;
+            border-left: 3px solid var(--red);
+            padding-left: 25px;
+        }
+
+        .value-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            color: var(--white);
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .value-card p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            color: var(--grey);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Curriculum Section */
+        .curriculum-section {
+            background: var(--bg);
+            padding: 80px 20px;
+            border-top: 1px solid rgba(204, 20, 23, 0.2);
+        }
+
+        .curriculum-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .curriculum-header h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(36px, 6vw, 60px);
+            color: var(--white);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .curriculum-header p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            color: var(--grey);
+            line-height: 1.6;
+        }
+
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .module-card {
+            background: rgba(204, 20, 23, 0.05);
+            border: 1px solid rgba(204, 20, 23, 0.2);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover {
+            background: rgba(204, 20, 23, 0.1);
+            border-color: var(--red);
+        }
+
+        .module-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .module-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 22px;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+
+        .curriculum-note {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: var(--grey);
+            font-style: italic;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background: var(--bg);
+            padding: 80px 20px;
+            border-top: 1px solid rgba(204, 20, 23, 0.2);
+        }
+
+        .pricing-container {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .early-access-badge {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            padding: 8px 16px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .pricing-price {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(48px, 10vw, 80px);
+            color: var(--white);
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+
+        .pricing-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: var(--grey);
+            margin-bottom: 40px;
+        }
+
+        .pricing-features {
+            text-align: left;
+            background: rgba(204, 20, 23, 0.05);
+            border: 1px solid rgba(204, 20, 23, 0.2);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .pricing-features li {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            color: var(--white);
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .pricing-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .pricing-features li:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-button {
+            background: var(--red);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 16px 40px;
+            border: none;
+            cursor: pointer;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #a80d10;
+            transform: translate(-2px, -2px);
+        }
+
+        /* Social Proof Section */
+        .social-proof-section {
+            background: var(--bg);
+            padding: 60px 20px;
+            border-top: 1px solid rgba(204, 20, 23, 0.2);
+            text-align: center;
+        }
+
+        .social-proof-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            color: var(--grey);
+            margin-bottom: 40px;
+        }
+
+        /* Final CTA */
+        .final-cta-section {
+            background: var(--bg);
+            padding: 80px 20px;
+            border-top: 1px solid rgba(204, 20, 23, 0.2);
+            text-align: center;
+        }
+
+        .final-cta-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(32px, 6vw, 56px);
+            color: var(--white);
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .value-grid {
+                gap: 30px;
+            }
+
+            .curriculum-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">FRD<span class="logo-dot">.</span></a>
+            <div class="nav-menu" id="navMenu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/pages/servizi.html" class="nav-link">Services</a>
+                <a href="/pages/portfolio.html" class="nav-link">Work</a>
+                <a href="/pages/academy.html" class="nav-link active">Academy</a>
+                <a href="/pages/contatti.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content reveal">
+            <div class="hero-eyebrow">FRD Academy</div>
+            <h1 class="hero-title">Learn the method.</h1>
+            <p class="hero-subtitle">Professional wrap design isn't about tricks. It's about process. The FRD Academy teaches you the system behind the work.</p>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="value-section">
+        <div class="value-grid">
+            <div class="value-card reveal">
+                <h3>Process, not shortcuts</h3>
+                <p>Every module is built on real-world methodology. No hacks, no quick fixes — the same process used on professional projects.</p>
+            </div>
+            <div class="value-card reveal">
+                <h3>From a practitioner</h3>
+                <p>Taught by someone who still does the work. Not a content creator — a designer who builds what he teaches.</p>
+            </div>
+            <div class="value-card reveal">
+                <h3>Community of professionals</h3>
+                <p>Join a network of serious practitioners. Share work, get feedback, grow together.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum -->
+    <section class="curriculum-section">
+        <div class="curriculum-header reveal">
+            <h2>What you'll learn</h2>
+            <p>A structured curriculum built on real-world wrap design methodology.</p>
+        </div>
+        <div class="curriculum-grid">
+            <div class="module-card reveal">
+                <div class="module-number">Module 01</div>
+                <div class="module-title">Fundamentals of wrap design</div>
+            </div>
+            <div class="module-card reveal">
+                <div class="module-number">Module 02</div>
+                <div class="module-title">Color theory & material science</div>
+            </div>
+            <div class="module-card reveal">
+                <div class="module-number">Module 03</div>
+                <div class="module-title">Measurements & templates</div>
+            </div>
+            <div class="module-card reveal">
+                <div class="module-number">Module 04</div>
+                <div class="module-title">Design process & methodology</div>
+            </div>
+            <div class="module-card reveal">
+                <div class="module-number">Module 05</div>
+                <div class="module-title">Client management & pricing</div>
+            </div>
+        </div>
+        <p class="curriculum-note reveal">More modules coming. The curriculum grows with the industry.</p>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+        <div class="pricing-container reveal">
+            <div class="early-access-badge">Early Access</div>
+            <div class="pricing-price">€197</div>
+            <p class="pricing-note">Lifetime access at early bird pricing</p>
+
+            <ul class="pricing-features">
+                <li>Full curriculum access</li>
+                <li>Community access</li>
+                <li>Direct feedback from Frank</li>
+                <li>Future modules included</li>
+            </ul>
+
+            <a href="https://academy.frankriccidesign.com" class="cta-button" target="_blank">Join the Academy</a>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof-section reveal">
+        <p class="social-proof-title">Beta testers are already inside.</p>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta-section">
+        <h2 class="final-cta-title reveal">Ready to learn the real process?</h2>
+        <a href="https://academy.frankriccidesign.com" class="cta-button reveal" target="_blank">Join the Academy</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">Frank Ricci <span class="footer-design">Design</span></div>
+            <nav class="footer-nav">
+                <a href="/">Home</a>
+                <a href="/pages/servizi.html">Services</a>
+                <a href="/pages/portfolio.html">Work</a>
+                <a href="/pages/academy.html">Academy</a>
+                <a href="/pages/contatti.html">Contact</a>
+            </nav>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Frank Ricci Design. All rights reserved.</p>
+                <p>P.IVA IT04191270984</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = (Array.from(revealElements).indexOf(entry.target) * 0.1) + 's';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

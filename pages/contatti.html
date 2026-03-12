@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Frank Ricci Design | Custom Car Design & Wraps</title>
+  <meta name="description" content="Get in touch with Frank Ricci Design. Projects, collaborations, or inquiries. Quick response times, working across Europe.">
+  <meta property="og:title" content="Contact — Frank Ricci Design">
+  <meta property="og:description" content="Reach out for custom car design, bodykit consultation, or wrap design projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/img/og-contact.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/vars.css">
+  <link rel="stylesheet" href="/assets/css/nav.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/footer.css">
+
+  <style>
+    /* Contact Page Specific Styles */
+
+    .contact-hero {
+      background: var(--bg);
+      color: var(--white);
+      padding: 80px 20px 60px;
+      text-align: center;
+      border-bottom: 1px solid rgba(204, 20, 23, 0.2);
+    }
+
+    .contact-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .contact-hero p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--grey);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-content {
+      background: var(--bg);
+      color: var(--white);
+      padding: 80px 20px;
+    }
+
+    .contact-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    /* Contact Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(204, 20, 23, 0.3);
+      color: var(--white);
+      padding: 12px 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--grey);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--red);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 0 2px rgba(204, 20, 23, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .form-note {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      color: var(--grey);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 16px 32px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+
+    .btn-primary:hover {
+      background: #b01114;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(204, 20, 23, 0.3);
+    }
+
+    /* Contact Info */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .info-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--red);
+    }
+
+    .info-content {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+
+    .info-content a {
+      color: var(--red);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .info-content a:hover {
+      color: var(--amber);
+    }
+
+    .btn-whatsapp {
+      background: transparent;
+      border: 2px solid #25d366;
+      color: #25d366;
+      padding: 12px 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    .btn-whatsapp:hover {
+      background: #25d366;
+      color: var(--bg);
+    }
+
+    /* Business Info Box */
+    .business-info {
+      background: rgba(204, 20, 23, 0.1);
+      border: 1px solid rgba(204, 20, 23, 0.3);
+      padding: 24px;
+      margin-top: 20px;
+    }
+
+    .business-info-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .business-info-item {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      color: var(--grey);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .business-info-item strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">FRD<span class="logo-dot"></span></a>
+
+      <div class="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/pages/servizi.html" class="nav-link">Services</a>
+        <a href="/pages/portfolio.html" class="nav-link">Work</a>
+        <a href="/pages/academy.html" class="nav-link">Academy</a>
+        <a href="/pages/contatti.html" class="nav-link active">Contact</a>
+      </div>
+
+      <a href="/pages/contatti.html" class="nav-cta">Let's Talk</a>
+
+      <div class="nav-toggle">
+        <span class="hamburger"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="contact-hero">
+    <h1>Let's Talk</h1>
+    <p>Projects, collaborations, or just a question. I'm here.</p>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="contact-content">
+    <div class="contact-grid">
+      <!-- Left Column: Form -->
+      <div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option value="bodykit">Bodykit & Extensions</option>
+              <option value="wrap">Wrap Design</option>
+              <option value="consulting">Design Consulting</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Send Message</button>
+          <p class="form-note">Or reach out directly via WhatsApp or email below.</p>
+        </form>
+      </div>
+
+      <!-- Right Column: Contact Info -->
+      <div class="contact-info">
+        <div class="info-block">
+          <div class="info-label">Email</div>
+          <div class="info-content">
+            <a href="mailto:frankriccidesign@gmail.com">frankriccidesign@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-label">WhatsApp</div>
+          <button class="btn-whatsapp" onclick="window.open('https://wa.me/YOUR_PHONE_NUMBER', '_blank')">Chat on WhatsApp</button>
+        </div>
+
+        <div class="info-block">
+          <div class="info-label">Location</div>
+          <div class="info-content">Working across Europe — Belgium, Netherlands, Italy</div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-label">Response Time</div>
+          <div class="info-content">Usually within 24 hours</div>
+        </div>
+
+        <!-- Business Info Box -->
+        <div class="business-info">
+          <div class="business-info-title">Frank Ricci Design</div>
+          <div class="business-info-item"><strong>P.IVA:</strong> IT04191270984</div>
+          <div class="business-info-item"><strong>Email:</strong> frankriccidesign@gmail.com</div>
+          <div class="business-info-item"><strong>Website:</strong> frankriccidesign.com</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-logo">Frank Ricci <span class="footer-design">Design</span></div>
+
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/pages/servizi.html">Services</a>
+          <a href="/pages/portfolio.html">Work</a>
+          <a href="/pages/academy.html">Academy</a>
+          <a href="/pages/contatti.html">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Frank Ricci Design. All rights reserved. P.IVA: IT04191270984</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/config.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script>
+    // URL parameter handler for pre-selecting service
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const service = urlParams.get('service');
+
+      if (service) {
+        const serviceSelect = document.getElementById('service');
+        serviceSelect.value = service;
+      }
+
+      // Form submission handler
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // TODO: Connect to backend service for form submission
+        console.log('Form submitted:', {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          service: document.getElementById('service').value,
+          message: document.getElementById('message').value
+        });
+        alert('Thank you for your message. I\'ll get back to you soon!');
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>

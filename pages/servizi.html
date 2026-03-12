@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frank Ricci Design Services - Bodykit Design, Wrap Design, Design Consulting with transparent pricing. Starting from €750.">
+    <meta property="og:title" content="Design Services — Frank Ricci Design">
+    <meta property="og:description" content="Professional automotive design services with clear pricing and delivery timelines.">
+    <meta property="og:image" content="https://frankriccidesign.com/assets/img/hero.jpg">
+    <meta property="og:url" content="https://frankriccidesign.com/pages/servizi.html">
+    <meta property="og:type" content="website">
+
+    <title>Design Services — Frank Ricci Design | Bodykit, Wrap, Consulting</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/vars.css">
+    <link rel="stylesheet" href="/assets/css/nav.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Noise overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" /><feColorMatrix in="noise" type="saturate" values="0" /></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.03"/></svg>');
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            padding: 120px 40px;
+            background: linear-gradient(135deg, rgba(204, 20, 23, 0.1) 0%, rgba(30, 30, 30, 0.8) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .hero-banner-content {
+            max-width: 800px;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .hero-banner h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-banner p {
+            font-size: 1.1rem;
+            color: var(--grey);
+            line-height: 1.6;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Services Grid Section */
+        .services-section {
+            padding: 100px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 70px;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-label::after {
+            content: '';
+            display: inline-block;
+            width: 40px;
+            height: 1px;
+            background-color: var(--red);
+            margin-left: 15px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(204, 20, 23, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(204, 20, 23, 0.1) 100%);
+            border-color: var(--red);
+            transform: translateY(-5px);
+        }
+
+        .service-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--red);
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .service-description {
+            color: var(--grey);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        /* Pricing - VERY PROMINENT */
+        .service-pricing {
+            background-color: rgba(204, 20, 23, 0.15);
+            border-left: 4px solid var(--red);
+            padding: 25px;
+            margin-bottom: 30px;
+            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+        }
+
+        .price-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--amber);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .price-amount {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            color: var(--red);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .price-note {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--amber);
+            letter-spacing: 0.5px;
+        }
+
+        /* Includes section */
+        .includes-section {
+            margin-bottom: 30px;
+        }
+
+        .includes-title {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .includes-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .includes-list li {
+            font-size: 0.95rem;
+            color: var(--grey);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .includes-list li::before {
+            content: '✓';
+            color: var(--amber);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--grey);
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .timeline::before {
+            content: '⏱';
+            font-size: 1.3rem;
+            color: var(--amber);
+        }
+
+        /* CTA Button */
+        .btn-cta {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: var(--red);
+            color: var(--white);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--white);
+            color: var(--red);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 40px;
+            background: linear-gradient(180deg, rgba(30, 30, 30, 0.5) 0%, rgba(204, 20, 23, 0.05) 100%);
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            text-align: left;
+        }
+
+        .step-number {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--red);
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            color: var(--grey);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1000px;
+        }
+
+        .faq-item {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 35px;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .faq-answer {
+            color: var(--grey);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Final Section */
+        .final-cta {
+            padding: 100px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(135deg, rgba(204, 20, 23, 0.08) 0%, rgba(30, 30, 30, 0.4) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .final-cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .final-cta p {
+            color: var(--grey);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .final-cta .btn-cta {
+            width: auto;
+            padding: 16px 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .services-section,
+            .process-section,
+            .faq-section,
+            .final-cta {
+                padding: 60px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 35px;
+            }
+
+            .price-amount {
+                font-size: 2.2rem;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-banner {
+                padding: 80px 20px;
+                min-height: auto;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "ProfessionalService",
+        "name": "Frank Ricci Design Services",
+        "description": "Automotive design services including bodykit design, wrap design, and design consulting.",
+        "url": "https://frankriccidesign.com/pages/servizi.html",
+        "telephone": "+39-000-000-0000",
+        "email": "frankriccidesign@gmail.com",
+        "priceRange": "€750-€3500",
+        "areaServed": "Europe",
+        "serviceType": [
+            {
+                "@type": "Service",
+                "name": "Bodykit & Extensions Design",
+                "description": "Full aero packages designed from scratch with 3D modeling and engineering files",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "3500",
+                    "priceCurrency": "EUR"
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "Wrap Design",
+                "description": "Liveries and full-wrap concepts with print-ready files",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "750",
+                    "priceCurrency": "EUR"
+                }
+            },
+            {
+                "@type": "Service",
+                "name": "Design Consulting",
+                "description": "Strategic design direction and brand identity services",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "150",
+                    "priceCurrency": "EUR",
+                    "unitText": "hour"
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="nav-logo">FRD<span class="logo-dot">●</span></a>
+            <div class="nav-links">
+                <a href="/#services">Services</a>
+                <a href="/pages/portfolio.html">Work</a>
+                <a href="/pages/academy.html">Academy</a>
+                <a href="/pages/contatti.html">Contact</a>
+            </div>
+            <a href="/pages/contatti.html" class="btn-primary nav-cta">Let's Talk</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-banner-content">
+            <h1>Design Services.</h1>
+            <p>Design is a decision system. Every project follows a method. Clear pricing, transparent process, measurable results.</p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-section">
+        <div class="section-header">
+            <span class="section-label">Available Services</span>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1: Bodykit -->
+            <div class="service-card" id="bodykit">
+                <div class="service-number">01</div>
+                <h3 class="service-title">Bodykit & Extensions</h3>
+                <p class="service-description">Full aero packages designed from scratch. Custom extensions, fenders, bumpers, and side skirts — every line drawn for your specific platform. From concept sketch to production-ready 3D files.</p>
+
+                <div class="service-pricing">
+                    <div class="price-label">Starting Price</div>
+                    <div class="price-amount">€3.500</div>
+                    <div class="price-note">For complete concept to CAD delivery</div>
+                </div>
+
+                <div class="timeline">6-12 weeks depending on complexity</div>
+
+                <div class="includes-section">
+                    <div class="includes-title">What's Included</div>
+                    <ul class="includes-list">
+                        <li>Concept design & sketches</li>
+                        <li>3D CAD modeling</li>
+                        <li>Engineering files for production</li>
+                        <li>Production support & consultation</li>
+                    </ul>
+                </div>
+
+                <a href="/pages/contatti.html?service=bodykit" class="btn-cta">Request a Quote</a>
+            </div>
+
+            <!-- Service 2: Wrap Design -->
+            <div class="service-card" id="wrap-design">
+                <div class="service-number">02</div>
+                <h3 class="service-title">Wrap Design</h3>
+                <p class="service-description">Liveries and full-wrap concepts built to communicate. Race liveries, commercial fleet branding, personal statements — every surface is intentional. From idea to print-ready files.</p>
+
+                <div class="service-pricing">
+                    <div class="price-label">Starting Price</div>
+                    <div class="price-amount">€750</div>
+                    <div class="price-note">For complete wrap design concept</div>
+                </div>
+
+                <div class="timeline">2-4 weeks</div>
+
+                <div class="includes-section">
+                    <div class="includes-title">What's Included</div>
+                    <ul class="includes-list">
+                        <li>Design concept & concepts</li>
+                        <li>Color studies & variations</li>
+                        <li>Print-ready vector files</li>
+                        <li>Application support</li>
+                    </ul>
+                </div>
+
+                <a href="/pages/contatti.html?service=wrap-design" class="btn-cta">Request a Quote</a>
+            </div>
+
+            <!-- Service 3: Design Consulting -->
+            <div class="service-card" id="consulting">
+                <div class="service-number">03</div>
+                <h3 class="service-title">Design Consulting</h3>
+                <p class="service-description">Strategic design direction for brands, builders, and teams who need vision — not just execution. From brand identity to product development strategy. Hour-based flexible engagement.</p>
+
+                <div class="service-pricing">
+                    <div class="price-label">Hourly Rate</div>
+                    <div class="price-amount">€150<span style="font-size: 0.6em; color: var(--amber);">/hr</span></div>
+                    <div class="price-note">Minimum 4-hour session</div>
+                </div>
+
+                <div class="timeline">Flexible scheduling</div>
+
+                <div class="includes-section">
+                    <div class="includes-title">What's Included</div>
+                    <ul class="includes-list">
+                        <li>Brand analysis & strategy</li>
+                        <li>Design direction guidance</li>
+                        <li>Visual strategy development</li>
+                        <li>Implementation roadmap</li>
+                    </ul>
+                </div>
+
+                <a href="/pages/contatti.html?service=consulting" class="btn-cta">Book a Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="section-header">
+            <span class="section-label">The Method</span>
+        </div>
+        <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px;">How I Work</h2>
+
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <h3 class="step-title">Brief</h3>
+                <p class="step-description">We talk. I listen. I ask the questions you haven't thought of yet. Understanding your vision is everything.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <h3 class="step-title">Concept</h3>
+                <p class="step-description">Research, sketches, directions. You see options before committing to a single path. Multiple approaches explored.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <h3 class="step-title">Development</h3>
+                <p class="step-description">The chosen direction gets refined to production quality. Every detail perfected. Engineering rigor applied.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-number">04</div>
+                <h3 class="step-title">Delivery</h3>
+                <p class="step-description">Final files, support, and follow-up. The work speaks for itself. Implementation assistance included.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="section-header">
+            <span class="section-label">Questions</span>
+        </div>
+        <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 20px;">Frequently Asked</h2>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">Do you work internationally?</div>
+                <div class="faq-answer">Yes. Projects completed across Europe and beyond. Location is no barrier. All communication digital.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can I see work in progress?</div>
+                <div class="faq-answer">Every project includes review checkpoints. You see progress regularly. Feedback drives the direction.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What if I need changes?</div>
+                <div class="faq-answer">Revisions are part of the process. We iterate until it's right. Within scope — unlimited refinement.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Do you offer payment plans?</div>
+                <div class="faq-answer">Discuss terms during briefing. Flexible arrangements available for larger projects and retainers.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">What formats do you deliver?</div>
+                <div class="faq-answer">Service-dependent. Wraps: print-ready vectors. Bodykits: production CAD files. Consulting: strategy documents.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Can you sign NDAs?</div>
+                <div class="faq-answer">Absolutely. Confidentiality is standard. Proprietary work treated as sensitive by default.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Ready to Start?</h2>
+        <p>Every project begins with a conversation. Let's discuss your vision, timeline, and budget. No obligation. Just ideas.</p>
+        <a href="/pages/contatti.html" class="btn-cta">Get in Touch</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">Frank Ricci <span class="red">Design</span></div>
+                <p class="footer-tagline">Extreme Thinking.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/pages/servizi.html">Services</a></li>
+                    <li><a href="/pages/portfolio.html">Work</a></li>
+                    <li><a href="/pages/academy.html">Academy</a></li>
+                    <li><a href="/pages/contatti.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="https://instagram.com/frankriccidesign" target="_blank">Instagram</a></li>
+                    <li><a href="https://behance.net/frankriccidesign" target="_blank">Behance</a></li>
+                    <li><a href="https://linkedin.com/in/frankriccidesign" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact & Business</h4>
+                <p><a href="mailto:frankriccidesign@gmail.com">frankriccidesign@gmail.com</a></p>
+                <p>P.IVA: IT04191270984</p>
+                <p>Location: Italy</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Frank Ricci Design. All rights reserved. | P.IVA IT04191270984</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

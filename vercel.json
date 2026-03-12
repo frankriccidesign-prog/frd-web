@@ -1,0 +1,23 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/l", "destination": "/pages/links", "permanent": true },
+    { "source": "/links", "destination": "/pages/links", "permanent": true },
+    { "source": "/servizi", "destination": "/pages/servizi", "permanent": false },
+    { "source": "/services", "destination": "/pages/servizi", "permanent": false },
+    { "source": "/portfolio", "destination": "/pages/portfolio", "permanent": false },
+    { "source": "/work", "destination": "/pages/portfolio", "permanent": false },
+    { "source": "/academy", "destination": "/pages/academy", "permanent": false },
+    { "source": "/contatti", "destination": "/pages/contatti", "permanent": false },
+    { "source": "/contact", "destination": "/pages/contatti", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}
