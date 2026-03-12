@@ -298,7 +298,7 @@
       }
       .intro__visual { display: none; }
       .services-preview__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr !important;
         gap: 2px;
       }
       .academy-banner__badge { display: none; }
@@ -356,7 +356,7 @@
   </div>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" style="background:url('assets/img/hero-bmw-m4.jpg') center/cover no-repeat var(--dark)">
     <div class="hero__bg"></div>
     <div class="hero__content container">
       <div class="hero__text">
@@ -406,14 +406,8 @@
         <p class="intro__body">Today, Frank Ricci Design is more than a studio. It's a design methodology, a learning platform, and a growing ecosystem for anyone serious about automotive wrap design.</p>
         <a href="pages/services.html" class="btn btn--outline-dark" style="margin-top:32px">See What I Do</a>
       </div>
-      <div class="intro__visual" aria-hidden="true">
-        <div class="intro__placeholder">
-          <svg viewBox="0 0 1700.79 1700.79" xmlns="http://www.w3.org/2000/svg" width="120" height="120">
-            <circle cx="850" cy="850" r="600" fill="#e0e0de"/>
-            <path fill="#cc1517" d="M850.41,470.92c-187,0-338.53,138.93-338.53,310.29,0,106.46,58.49,200.38,147.54,256.26v192.36h377.07v-189.37c91.79-55.52,152.37-150.9,152.37-259.25,0-171.36-151.53-310.29-338.46-310.29Z"/>
-          </svg>
-          <p style="padding:0 24px;color:#aaa">Portrait of Frank Ricci<br><em>(image coming soon)</em></p>
-        </div>
+      <div class="intro__visual">
+        <img src="assets/img/cris-portrait.jpg" alt="Frank Ricci — Automotive Wrap Designer" style="width:100%;max-width:400px;aspect-ratio:3/4;object-fit:cover" loading="lazy">
       </div>
     </div>
   </section>
@@ -425,45 +419,43 @@
         <div class="section__eyebrow">Services</div>
         <h2 class="section__title">What I Do</h2>
       </div>
-      <div class="services-preview__grid">
+      <div class="services-preview__grid" style="grid-template-columns:repeat(4,1fr)">
 
-        <article class="service-card">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-              <rect x="4" y="16" width="40" height="20" rx="3" stroke="#cc1517" stroke-width="2.5"/>
-              <path d="M10 16v-3a3 3 0 013-3h22a3 3 0 013 3v3" stroke="#cc1517" stroke-width="2.5"/>
-              <circle cx="14" cy="36" r="3.5" fill="#cc1517"/>
-              <circle cx="34" cy="36" r="3.5" fill="#cc1517"/>
-            </svg>
+        <article class="service-card" style="padding:0;overflow:hidden">
+          <img src="assets/img/card-wrap-design.jpg" alt="Custom Wrap Design — Porsche 928 Gulf" style="width:100%;height:200px;object-fit:cover" loading="lazy">
+          <div style="padding:28px 24px">
+            <h3 class="service-card__title">Wrap Design</h3>
+            <p class="service-card__body">Custom liveries, race graphics, full wraps. From concept to print-ready files.</p>
+            <a href="pages/services.html#wrap-design" class="service-card__link">View services →</a>
           </div>
-          <h3 class="service-card__title">Wrap Design</h3>
-          <p class="service-card__body">Custom liveries, race graphics, full wraps. From concept to print-ready files. Every surface intentional.</p>
-          <a href="pages/services.html#wrap-design" class="service-card__link">View services →</a>
         </article>
 
-        <article class="service-card">
-          <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-              <rect x="6" y="6" width="36" height="36" rx="3" stroke="#cc1517" stroke-width="2.5"/>
-              <rect x="12" y="18" width="24" height="3" rx="1" fill="#cc1517"/>
-              <rect x="12" y="26" width="16" height="3" rx="1" fill="#cc1517"/>
-            </svg>
+        <article class="service-card" style="padding:0;overflow:hidden">
+          <img src="assets/img/card-3d-renders.jpg" alt="3D Renders — Porsche Taycan TayKart" style="width:100%;height:200px;object-fit:cover" loading="lazy">
+          <div style="padding:28px 24px">
+            <h3 class="service-card__title">3D Renders</h3>
+            <p class="service-card__body">Photorealistic concept presentations. See your design before it hits the wrap shop.</p>
+            <a href="pages/services.html#wrap-design" class="service-card__link">View services →</a>
           </div>
-          <h3 class="service-card__title">Digital Products</h3>
-          <p class="service-card__body">High-resolution textures, templates, and graphic elements created from real production work.</p>
-          <a href="pages/services.html#digital-products" class="service-card__link">View products →</a>
         </article>
 
-        <article class="service-card service-card--featured">
-          <span class="service-card__tag tag tag--red">Live Now</span>
-          <div class="service-card__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-              <path d="M24 6l4 10h11l-9 6.5 3.5 10.5L24 27l-9.5 6 3.5-10.5L9 16h11L24 6z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
-            </svg>
+        <article class="service-card" style="padding:0;overflow:hidden">
+          <img src="assets/img/card-bodykit-wheels.jpg" alt="Bodykit & Wheels — Ford F150 Raptor" style="width:100%;height:200px;object-fit:cover" loading="lazy">
+          <div style="padding:28px 24px">
+            <h3 class="service-card__title">Bodykit &amp; Wheels</h3>
+            <p class="service-card__body">Custom body modifications and wheel design integrated into the overall concept.</p>
+            <a href="pages/services.html#wrap-design" class="service-card__link">View services →</a>
           </div>
-          <h3 class="service-card__title">FRD Academy</h3>
-          <p class="service-card__body">The only wrap design course in the world. Methodology, not tutorials. AI-powered learning.</p>
-          <a href="pages/academy.html" class="service-card__link">Learn more →</a>
+        </article>
+
+        <article class="service-card service-card--featured" style="padding:0;overflow:hidden">
+          <img src="assets/img/card-academy.jpg" alt="FRD Academy — Learn Wrap Design" style="width:100%;height:200px;object-fit:cover" loading="lazy">
+          <div style="padding:28px 24px">
+            <span class="service-card__tag tag tag--red">Live Now</span>
+            <h3 class="service-card__title">FRD Academy</h3>
+            <p class="service-card__body">The only wrap design course in the world. Methodology, not tutorials.</p>
+            <a href="pages/academy.html" class="service-card__link">Learn more →</a>
+          </div>
         </article>
 
       </div>
