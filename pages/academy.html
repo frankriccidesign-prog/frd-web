@@ -1,497 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRD Academy — Learn the Method</title>
-    <meta name="description" content="Professional wrap design education from Frank Ricci. Learn the real process behind professional wrap design.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FRD Academy — Learn Wrap Design</title>
+  <meta name="description" content="The world's first structured course on vehicle wrap design. 6 modules, 24 lessons, AI-powered learning. From €197.">
+  <meta property="og:title" content="FRD Academy — Learn Wrap Design">
+  <meta property="og:url" content="https://frankriccidesign.com/academy">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <style>
+    .academy-hero { padding:calc(var(--nav-h)+96px) 0 80px; background:var(--dark); text-align:center; }
+    .academy-hero__title { font-family:var(--font-display); font-size:clamp(56px,8vw,112px); line-height:.92; color:var(--white); margin-bottom:24px; }
+    .academy-hero__sub { font-size:18px; font-weight:300; color:rgba(255,255,255,.6); max-width:580px; margin:0 auto 40px; line-height:1.7; }
+    .academy-hero__ctas { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
+    .academy-hero__scroll { font-size:13px; color:rgba(255,255,255,.3); font-family:var(--font-mono); letter-spacing:.08em; margin-top:16px; }
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    .problem-section { padding:80px 0; background:var(--light); }
+    .problem-inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .problem-quote { font-family:var(--font-display); font-size:clamp(32px,4vw,56px); line-height:1.05; color:var(--dark); }
+    .problem-quote span { color:var(--red); }
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="/assets/css/vars.css">
-    <link rel="stylesheet" href="/assets/css/nav.css">
-    <link rel="stylesheet" href="/assets/css/components.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
+    .solution-section { padding:80px 0; }
+    .solution-inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; }
 
-    <!-- Page-specific styles -->
-    <style>
-        /* Hero Section */
-        .hero {
-            background: var(--bg);
-            padding: 120px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+    .modules-section { padding:80px 0; background:var(--dark); }
+    .modules-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:48px; }
+    .module-item { background:rgba(255,255,255,.03); border:1px solid var(--border); padding:32px 28px; }
+    .module-item__num { font-family:var(--font-mono); font-size:11px; color:var(--red); letter-spacing:.12em; text-transform:uppercase; margin-bottom:12px; }
+    .module-item__title { font-family:var(--font-display); font-size:24px; color:var(--white); margin-bottom:10px; }
+    .module-item__body { font-size:13px; color:rgba(255,255,255,.5); line-height:1.65; }
+    .modules-footnote { text-align:center; margin-top:32px; font-size:13px; color:rgba(255,255,255,.35); font-family:var(--font-mono); }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 0%, rgba(204, 20, 23, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
+    .for-who-section { padding:80px 0; }
+    .for-who__grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:48px; }
+    .for-who__card { padding:40px 36px; border:1px solid #e8e8e6; }
+    .for-who__card-title { font-family:var(--font-display); font-size:28px; margin-bottom:16px; }
+    .for-who__card-body { font-size:14px; line-height:1.75; color:#555; }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    .about-creator { padding:80px 0; background:var(--light); }
+    .about-creator__inner { display:grid; grid-template-columns:1fr 2fr; gap:64px; align-items:center; }
+    .about-creator__photo { aspect-ratio:1; background:#e0e0de; display:flex; align-items:center; justify-content:center; }
 
-        .hero-eyebrow {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 20px;
-        }
+    .pricing-section { padding:80px 0; background:var(--dark); }
+    .pricing-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:48px; }
+    .pricing-card { padding:40px 32px; border:1px solid var(--border); background:rgba(255,255,255,.03); }
+    .pricing-card--featured { border-color:var(--red); background:rgba(204,21,23,.08); }
+    .pricing-card__tag { font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--red); margin-bottom:16px; display:block; }
+    .pricing-card--featured .pricing-card__tag { color:var(--white); background:var(--red); display:inline-block; padding:4px 10px; margin-bottom:16px; }
+    .pricing-card__price { font-family:var(--font-display); font-size:64px; color:var(--white); line-height:1; margin-bottom:8px; }
+    .pricing-card__strikethrough { text-decoration:line-through; color:rgba(255,255,255,.3); font-size:24px; font-family:var(--font-display); display:inline-block; margin-right:8px; }
+    .pricing-card__body { font-size:14px; line-height:1.7; color:rgba(255,255,255,.55); margin-bottom:24px; }
+    .pricing-card__note { font-size:12px; color:rgba(255,255,255,.3); font-family:var(--font-mono); }
 
-        .hero-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(48px, 8vw, 96px);
-            color: var(--white);
-            margin-bottom: 30px;
-            line-height: 1.1;
-            letter-spacing: -2px;
-        }
+    .pricing-cta-block { text-align:center; margin-top:48px; }
+    .money-back { font-size:13px; color:rgba(255,255,255,.4); margin-top:16px; font-family:var(--font-mono); }
 
-        .hero-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(16px, 3vw, 20px);
-            color: var(--grey);
-            line-height: 1.6;
-            font-weight: 300;
-        }
+    .trust-strip { background:rgba(255,255,255,.04); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:28px 0; margin-top:48px; }
+    .trust-items { display:flex; align-items:center; justify-content:center; gap:48px; flex-wrap:wrap; }
+    .trust-item { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:rgba(255,255,255,.5); }
+    .trust-item::before { content:'✓'; color:var(--red); font-size:14px; }
 
-        /* Value Proposition */
-        .value-section {
-            background: var(--bg);
-            padding: 80px 20px;
-            border-top: 1px solid rgba(204, 20, 23, 0.2);
-        }
-
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .value-card {
-            padding: 40px 0;
-            border-left: 3px solid var(--red);
-            padding-left: 25px;
-        }
-
-        .value-card h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 24px;
-            color: var(--white);
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
-        }
-
-        .value-card p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            color: var(--grey);
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        /* Curriculum Section */
-        .curriculum-section {
-            background: var(--bg);
-            padding: 80px 20px;
-            border-top: 1px solid rgba(204, 20, 23, 0.2);
-        }
-
-        .curriculum-header {
-            text-align: center;
-            margin-bottom: 60px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .curriculum-header h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(36px, 6vw, 60px);
-            color: var(--white);
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .curriculum-header p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            color: var(--grey);
-            line-height: 1.6;
-        }
-
-        .curriculum-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto 40px;
-        }
-
-        .module-card {
-            background: rgba(204, 20, 23, 0.05);
-            border: 1px solid rgba(204, 20, 23, 0.2);
-            padding: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .module-card:hover {
-            background: rgba(204, 20, 23, 0.1);
-            border-color: var(--red);
-        }
-
-        .module-number {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 12px;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .module-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 22px;
-            color: var(--white);
-            letter-spacing: 0.5px;
-        }
-
-        .curriculum-note {
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            color: var(--grey);
-            font-style: italic;
-        }
-
-        /* Pricing Section */
-        .pricing-section {
-            background: var(--bg);
-            padding: 80px 20px;
-            border-top: 1px solid rgba(204, 20, 23, 0.2);
-        }
-
-        .pricing-container {
-            max-width: 500px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .early-access-badge {
-            display: inline-block;
-            background: var(--red);
-            color: var(--white);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px;
-            padding: 8px 16px;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .pricing-price {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(48px, 10vw, 80px);
-            color: var(--white);
-            margin-bottom: 10px;
-            letter-spacing: -2px;
-        }
-
-        .pricing-note {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            color: var(--grey);
-            margin-bottom: 40px;
-        }
-
-        .pricing-features {
-            text-align: left;
-            background: rgba(204, 20, 23, 0.05);
-            border: 1px solid rgba(204, 20, 23, 0.2);
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        .pricing-features li {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 15px;
-            color: var(--white);
-            margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .pricing-features li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--red);
-            font-weight: 700;
-        }
-
-        .pricing-features li:last-child {
-            margin-bottom: 0;
-        }
-
-        .cta-button {
-            background: var(--red);
-            color: var(--white);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 16px 40px;
-            border: none;
-            cursor: pointer;
-            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-            display: inline-block;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: #a80d10;
-            transform: translate(-2px, -2px);
-        }
-
-        /* Social Proof Section */
-        .social-proof-section {
-            background: var(--bg);
-            padding: 60px 20px;
-            border-top: 1px solid rgba(204, 20, 23, 0.2);
-            text-align: center;
-        }
-
-        .social-proof-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            color: var(--grey);
-            margin-bottom: 40px;
-        }
-
-        /* Final CTA */
-        .final-cta-section {
-            background: var(--bg);
-            padding: 80px 20px;
-            border-top: 1px solid rgba(204, 20, 23, 0.2);
-            text-align: center;
-        }
-
-        .final-cta-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(32px, 6vw, 56px);
-            color: var(--white);
-            margin-bottom: 30px;
-            letter-spacing: -1px;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .reveal {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 20px;
-            }
-
-            .value-grid {
-                gap: 30px;
-            }
-
-            .curriculum-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    @media (max-width:900px) {
+      .problem-inner,.solution-inner,.about-creator__inner { grid-template-columns:1fr; gap:32px; }
+      .modules-grid { grid-template-columns:1fr 1fr; }
+      .for-who__grid,.pricing-cards { grid-template-columns:1fr; }
+    }
+    @media (max-width:600px) {
+      .modules-grid { grid-template-columns:1fr; }
+      .trust-items { gap:24px; justify-content:flex-start; padding:0 24px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="/" class="nav-logo">FRD<span class="logo-dot">.</span></a>
-            <div class="nav-menu" id="navMenu">
-                <a href="/" class="nav-link">Home</a>
-                <a href="/pages/servizi.html" class="nav-link">Services</a>
-                <a href="/pages/portfolio.html" class="nav-link">Work</a>
-                <a href="/pages/academy.html" class="nav-link active">Academy</a>
-                <a href="/pages/contatti.html" class="nav-link">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <div class="nav__logo-stamp">
+          <svg viewBox="0 0 1700.79 1700.79" xmlns="http://www.w3.org/2000/svg">
+            <style>.ns2{fill:#cc1517}</style>
+            <path class="ns2" d="M850.38,248.16c-332.59,0-602.2,269.64-602.2,602.23s269.6,602.23,602.2,602.23,602.22-269.64,602.22-602.23S1182.96,248.16,850.38,248.16ZM1116.51,1082.59l-.04,147.27c0,44.15-35.8,79.92-79.98,79.92h-377.07c-44.14,0-79.94-35.77-79.94-79.94v-151.07c-93.17-73.72-147.6-182.04-147.6-297.56,0-215.17,187.73-390.22,418.52-390.22s418.4,175.05,418.4,390.22c0,117.9-56.12,227.6-152.29,301.38Z"/>
+            <path fill="#fff" d="M850.41,470.92c-187,0-338.53,138.93-338.53,310.29,0,106.46,58.49,200.38,147.54,256.26v192.36h377.07v-189.37c91.79-55.52,152.37-150.9,152.37-259.25,0-171.36-151.53-310.29-338.46-310.29Z"/>
+          </svg>
         </div>
-    </nav>
+        <span class="nav__logo-text">FRANK RICCI DESIGN</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="academy.html" class="nav__link active">Academy</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="academy.html#pricing" class="nav__cta">Enroll Now</a>
+      <button class="nav__hamburger" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="navMobile">
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="portfolio.html" class="nav__link">Portfolio</a>
+    <a href="academy.html" class="nav__link">Academy</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="#pricing" class="btn btn--primary" style="align-self:flex-start;margin-top:8px">Enroll — €197</a>
+  </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content reveal">
-            <div class="hero-eyebrow">FRD Academy</div>
-            <h1 class="hero-title">Learn the method.</h1>
-            <p class="hero-subtitle">Professional wrap design isn't about tricks. It's about process. The FRD Academy teaches you the system behind the work.</p>
+  <!-- HERO -->
+  <section class="academy-hero">
+    <div class="container">
+      <div class="section__eyebrow" style="color:var(--red);margin-bottom:20px">FRD Academy</div>
+      <h1 class="academy-hero__title">Learn Wrap Design.<br>For Real.</h1>
+      <p class="academy-hero__sub">The world's first structured course on vehicle wrap design. Not installation — design methodology. Built by a Top 4 SEMA designer, powered by AI.</p>
+      <div class="academy-hero__ctas">
+        <a href="#pricing" class="btn btn--primary" style="font-size:15px;padding:16px 40px">Start Learning — €197 Early Bird</a>
+        <a href="#curriculum" class="btn btn--outline" style="font-size:15px;padding:16px 40px">See What's Inside ↓</a>
+      </div>
+      <div class="academy-hero__scroll">Secure payment via Stripe · Instant access</div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="problem-section">
+    <div class="container">
+      <div class="problem-inner">
+        <div>
+          <div class="section__eyebrow">The Problem</div>
+          <h2 class="problem-quote">Everyone Teaches <span>Wrapping.</span><br>Nobody Teaches <span>Design.</span></h2>
         </div>
-    </section>
-
-    <!-- Value Proposition -->
-    <section class="value-section">
-        <div class="value-grid">
-            <div class="value-card reveal">
-                <h3>Process, not shortcuts</h3>
-                <p>Every module is built on real-world methodology. No hacks, no quick fixes — the same process used on professional projects.</p>
-            </div>
-            <div class="value-card reveal">
-                <h3>From a practitioner</h3>
-                <p>Taught by someone who still does the work. Not a content creator — a designer who builds what he teaches.</p>
-            </div>
-            <div class="value-card reveal">
-                <h3>Community of professionals</h3>
-                <p>Join a network of serious practitioners. Share work, get feedback, grow together.</p>
-            </div>
+        <div>
+          <p style="font-size:16px;line-height:1.8;color:#444;margin-bottom:20px">There are courses on how to apply vinyl. How to squeegee. How to heat. But when it comes to actually designing a vehicle wrap — the concept, the layout, the visual strategy — there's nothing.</p>
+          <p style="font-size:16px;line-height:1.8;color:#444">The design side of the industry has no education system. Until now.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Curriculum -->
-    <section class="curriculum-section">
-        <div class="curriculum-header reveal">
-            <h2>What you'll learn</h2>
-            <p>A structured curriculum built on real-world wrap design methodology.</p>
+  <!-- THE SOLUTION -->
+  <section class="solution-section section">
+    <div class="container">
+      <div class="solution-inner">
+        <div>
+          <div class="section__eyebrow">The Solution</div>
+          <h2 class="section__title">A Method,<br>Not a Tutorial.</h2>
         </div>
-        <div class="curriculum-grid">
-            <div class="module-card reveal">
-                <div class="module-number">Module 01</div>
-                <div class="module-title">Fundamentals of wrap design</div>
+        <div style="padding-top:16px">
+          <p style="font-size:16px;line-height:1.8;color:#444;margin-bottom:20px">FRD Academy teaches the same methodology I use on real client projects. It's called the FRD Method — a structured process from vehicle study to final production files.</p>
+          <p style="font-size:16px;line-height:1.8;color:#444;margin-bottom:20px">Every module builds on the previous one. Every lesson has a purpose. And an AI tutor follows your progress, answers your questions, and adapts to how you learn.</p>
+          <div style="display:flex;gap:32px;margin-top:32px;flex-wrap:wrap">
+            <div style="text-align:center">
+              <div style="font-family:var(--font-display);font-size:48px;color:var(--red);line-height:1">6</div>
+              <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);font-family:var(--font-mono)">Modules</div>
             </div>
-            <div class="module-card reveal">
-                <div class="module-number">Module 02</div>
-                <div class="module-title">Color theory & material science</div>
+            <div style="text-align:center">
+              <div style="font-family:var(--font-display);font-size:48px;color:var(--red);line-height:1">24</div>
+              <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);font-family:var(--font-mono)">Lessons</div>
             </div>
-            <div class="module-card reveal">
-                <div class="module-number">Module 03</div>
-                <div class="module-title">Measurements & templates</div>
+            <div style="text-align:center">
+              <div style="font-family:var(--font-display);font-size:48px;color:var(--red);line-height:1">4</div>
+              <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);font-family:var(--font-mono)">Languages</div>
             </div>
-            <div class="module-card reveal">
-                <div class="module-number">Module 04</div>
-                <div class="module-title">Design process & methodology</div>
+            <div style="text-align:center">
+              <div style="font-family:var(--font-display);font-size:48px;color:var(--red);line-height:1">AI</div>
+              <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);font-family:var(--font-mono)">Tutor</div>
             </div>
-            <div class="module-card reveal">
-                <div class="module-number">Module 05</div>
-                <div class="module-title">Client management & pricing</div>
-            </div>
+          </div>
         </div>
-        <p class="curriculum-note reveal">More modules coming. The curriculum grows with the industry.</p>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Pricing -->
-    <section class="pricing-section">
-        <div class="pricing-container reveal">
-            <div class="early-access-badge">Early Access</div>
-            <div class="pricing-price">€197</div>
-            <p class="pricing-note">Lifetime access at early bird pricing</p>
-
-            <ul class="pricing-features">
-                <li>Full curriculum access</li>
-                <li>Community access</li>
-                <li>Direct feedback from Frank</li>
-                <li>Future modules included</li>
-            </ul>
-
-            <a href="https://academy.frankriccidesign.com" class="cta-button" target="_blank">Join the Academy</a>
+  <!-- CURRICULUM -->
+  <section class="modules-section" id="curriculum">
+    <div class="container">
+      <div class="section__eyebrow" style="color:var(--red)">Curriculum</div>
+      <h2 class="section__title" style="color:var(--white)">6 Modules. 24 Lessons.<br>One Complete Method.</h2>
+      <div class="modules-grid">
+        <div class="module-item">
+          <div class="module-item__num">Module 01</div>
+          <div class="module-item__title">Mindset</div>
+          <p class="module-item__body">How a professional automotive designer thinks before touching any tool.</p>
         </div>
-    </section>
-
-    <!-- Social Proof -->
-    <section class="social-proof-section reveal">
-        <p class="social-proof-title">Beta testers are already inside.</p>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta-section">
-        <h2 class="final-cta-title reveal">Ready to learn the real process?</h2>
-        <a href="https://academy.frankriccidesign.com" class="cta-button reveal" target="_blank">Join the Academy</a>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">Frank Ricci <span class="footer-design">Design</span></div>
-            <nav class="footer-nav">
-                <a href="/">Home</a>
-                <a href="/pages/servizi.html">Services</a>
-                <a href="/pages/portfolio.html">Work</a>
-                <a href="/pages/academy.html">Academy</a>
-                <a href="/pages/contatti.html">Contact</a>
-            </nav>
-            <div class="footer-copyright">
-                <p>&copy; 2026 Frank Ricci Design. All rights reserved.</p>
-                <p>P.IVA IT04191270984</p>
-            </div>
+        <div class="module-item">
+          <div class="module-item__num">Module 02</div>
+          <div class="module-item__title">Panels</div>
+          <p class="module-item__body">The anatomy of a vehicle — surfaces, panels, character lines.</p>
         </div>
-    </footer>
+        <div class="module-item">
+          <div class="module-item__num">Module 03</div>
+          <div class="module-item__title">Measurements</div>
+          <p class="module-item__body">Translating a real vehicle into usable design data.</p>
+        </div>
+        <div class="module-item">
+          <div class="module-item__num">Module 04</div>
+          <div class="module-item__title">Software</div>
+          <p class="module-item__body">The tools of the trade — from vectors to renders.</p>
+        </div>
+        <div class="module-item">
+          <div class="module-item__num">Module 05</div>
+          <div class="module-item__title">Files & Print</div>
+          <p class="module-item__body">From screen to vinyl — production-ready output.</p>
+        </div>
+        <div class="module-item">
+          <div class="module-item__num">Module 06</div>
+          <div class="module-item__title">Application</div>
+          <p class="module-item__body">Design meets reality — on the actual vehicle.</p>
+        </div>
+      </div>
+      <p class="modules-footnote">4 languages: English, Italian, French, Dutch · AI tutor included · Daily challenges</p>
+    </div>
+  </section>
 
-    <!-- Scripts -->
-    <script src="/assets/js/config.js"></script>
-    <script src="/assets/js/main.js"></script>
+  <!-- FOR WHO -->
+  <section class="for-who-section section">
+    <div class="container">
+      <div class="section__eyebrow">Who It's For</div>
+      <h2 class="section__title">Built For Two Types<br>of People.</h2>
+      <div class="for-who__grid">
+        <div class="for-who__card">
+          <h3 class="for-who__card-title">Professional Wrappers</h3>
+          <p class="for-who__card-body">You install wraps every day. But you want to design them too — or at least understand how design decisions are made. This course gives you that vocabulary and that method.</p>
+        </div>
+        <div class="for-who__card">
+          <h3 class="for-who__card-title">Designers Entering Wraps</h3>
+          <p class="for-who__card-body">You know graphic design. You know Illustrator. But vehicle wraps are a different world — curved surfaces, vinyl behavior, print constraints. This course bridges that gap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Hamburger menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
+  <!-- ABOUT CREATOR -->
+  <section class="about-creator">
+    <div class="container">
+      <div class="about-creator__inner">
+        <div class="about-creator__photo">
+          <div style="text-align:center;color:#aaa;font-size:12px;font-family:var(--font-mono);padding:24px">Frank Ricci<br><em>(photo coming)</em></div>
+        </div>
+        <div>
+          <div class="section__eyebrow">The Instructor</div>
+          <h2 class="section__title">Created by<br>Frank Ricci.</h2>
+          <div class="divider"></div>
+          <p style="font-size:15px;line-height:1.85;color:#444;margin-bottom:16px">Over 10 years of professional automotive wrap design. Best Livery at WrapMyRide 2024. Named Top 4 Wrap Designer at the SEMA Show 2025. Clients across Europe.</p>
+          <p style="font-size:15px;line-height:1.85;color:#444">A methodology developed project by project, now codified into a structured learning experience. This isn't theory from someone who watched YouTube videos. This is the working method of an active professional designer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
+  <!-- PRICING -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section__eyebrow" style="color:var(--red)">Pricing</div>
+      <h2 class="section__title" style="color:var(--white)">One Price. Full Access.<br>Yours Forever.</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <span class="pricing-card__tag">Full Price</span>
+          <div class="pricing-card__price">€249</div>
+          <p class="pricing-card__body">Everything. All 6 modules, 24 lessons, AI tutor, daily challenges, downloadable resources. One payment, lifetime access.</p>
+        </div>
+        <div class="pricing-card pricing-card--featured">
+          <span class="pricing-card__tag">Early Bird — Limited</span>
+          <div class="pricing-card__price"><span class="pricing-card__strikethrough">249</span>€197</div>
+          <p class="pricing-card__body">Same full access. Available for the first 30 students only. Once they're gone, the price goes up permanently.</p>
+          <a href="https://academy.frankriccidesign.com" class="btn btn--primary" style="width:100%;justify-content:center;margin-bottom:16px">Enroll Now — €197</a>
+          <div class="pricing-card__note">Secure payment via Stripe · Instant access</div>
+        </div>
+        <div class="pricing-card">
+          <span class="pricing-card__tag">GR8 Special</span>
+          <div class="pricing-card__price">€149</div>
+          <p class="pricing-card__body">Exclusive code given by Frank in person at GR8 I.C.S. 2026. Not available online.</p>
+          <div class="pricing-card__note" style="margin-top:8px">Event only · In-person code required</div>
+        </div>
+      </div>
+      <div class="pricing-cta-block">
+        <p class="money-back">14-day money-back guarantee. No questions asked. EU consumer rights apply.</p>
+      </div>
+      <div class="trust-strip">
+        <div class="trust-items">
+          <div class="trust-item">Best Livery WrapMyRide 2024</div>
+          <div class="trust-item">Top 4 SEMA 2025</div>
+          <div class="trust-item">AI-powered platform</div>
+          <div class="trust-item">Not Udemy, not Teachable</div>
+          <div class="trust-item">14-day money-back</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Scroll reveal animation
-        const revealElements = document.querySelectorAll('.reveal');
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Frank Ricci Design</div>
+          <div class="footer__brand-payoff">Extreme Thinking.</div>
+          <a href="mailto:frankriccidesign@gmail.com" style="color:rgba(255,255,255,0.6);font-size:14px">frankriccidesign@gmail.com</a>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <nav class="footer__nav">
+            <a href="../index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="academy.html">Academy</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <div class="footer__connect">
+            <a href="https://www.instagram.com/frankriccidesign" target="_blank" rel="noopener">Instagram</a>
+            <a href="#" target="_blank" rel="noopener">TikTok</a>
+            <a href="#" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Frank Ricci Design — P.IVA IT04191270984 — All rights reserved.</span>
+        <span>Secure payments via Stripe.</span>
+      </div>
+    </div>
+  </footer>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = (Array.from(revealElements).indexOf(entry.target) * 0.1) + 's';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(el => observer.observe(el));
-    </script>
+  <script src="../assets/js/main.js"></script>
 </body>
 </html>

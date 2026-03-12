@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services & Pricing — Frank Ricci Design</title>
+  <meta name="description" content="Custom wrap design, design consultation, digital products for the wrap industry. Transparent pricing, secure payment.">
+  <meta property="og:title" content="Services & Pricing — Frank Ricci Design">
+  <meta property="og:url" content="https://frankriccidesign.com/services">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <style>
+    .pricing-table { width:100%; border-collapse:collapse; margin:24px 0 32px; }
+    .pricing-table th { text-align:left; font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray); padding:8px 0; border-bottom:2px solid #e8e8e6; }
+    .pricing-table td { padding:14px 0; border-bottom:1px solid #e8e8e6; font-size:14px; vertical-align:top; }
+    .pricing-table td:first-child { font-weight:600; color:var(--dark); padding-right:32px; }
+    .pricing-table td:last-child { color:var(--red); font-family:var(--font-mono); font-weight:600; white-space:nowrap; }
+
+    .service-section { padding:72px 0; border-bottom:1px solid #e8e8e6; }
+    .service-section:last-of-type { border-bottom:none; }
+    .service-section__inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+    .service-section__meta { position:sticky; top:calc(var(--nav-h) + 32px); }
+    .service-section__num { font-family:var(--font-display); font-size:80px; color:#e8e8e6; line-height:1; margin-bottom:-8px; }
+    .service-section__title { font-family:var(--font-display); font-size:clamp(32px,3.5vw,48px); letter-spacing:.02em; line-height:1; margin-bottom:20px; }
+    .service-section__intro { font-size:15px; line-height:1.8; color:#555; margin-bottom:24px; }
+    .included-list { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:32px; }
+    .included-list li { display:flex; align-items:flex-start; gap:12px; font-size:14px; line-height:1.5; }
+    .included-list li::before { content:'→'; color:var(--red); flex-shrink:0; font-weight:700; margin-top:1px; }
+
+    .how-it-works { background:var(--dark); color:var(--white); padding:80px 0; }
+    .how-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:48px; }
+    .how-step { background:rgba(255,255,255,.03); border:1px solid var(--border); padding:32px 24px; }
+    .how-step__num { font-family:var(--font-display); font-size:48px; color:var(--red); line-height:1; margin-bottom:16px; }
+    .how-step__title { font-size:15px; font-weight:700; margin-bottom:10px; color:var(--white); }
+    .how-step__body { font-size:13px; line-height:1.7; color:rgba(255,255,255,.6); }
+
+    @media (max-width:900px) {
+      .service-section__inner { grid-template-columns:1fr; gap:32px; }
+      .service-section__meta { position:static; }
+      .how-steps { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width:600px) {
+      .how-steps { grid-template-columns:1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"Custom Wrap Design","provider":{"@type":"LocalBusiness","name":"Frank Ricci Design","vatID":"IT04191270984"},"areaServed":"Europe","offers":[{"@type":"Offer","name":"Partial wrap","price":"800","priceCurrency":"EUR"},{"@type":"Offer","name":"Full wrap","price":"1500","priceCurrency":"EUR"},{"@type":"Offer","name":"Race livery","price":"2500","priceCurrency":"EUR"},{"@type":"Offer","name":"Design Consultation","price":"150","priceCurrency":"EUR"}]}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <div class="nav__logo-stamp">
+          <svg viewBox="0 0 1700.79 1700.79" xmlns="http://www.w3.org/2000/svg">
+            <style>.ns2{fill:#cc1517}</style>
+            <path class="ns2" d="M850.38,248.16c-332.59,0-602.2,269.64-602.2,602.23s269.6,602.23,602.2,602.23,602.22-269.64,602.22-602.23S1182.96,248.16,850.38,248.16ZM1116.51,1082.59l-.04,147.27c0,44.15-35.8,79.92-79.98,79.92h-377.07c-44.14,0-79.94-35.77-79.94-79.94v-151.07c-93.17-73.72-147.6-182.04-147.6-297.56,0-215.17,187.73-390.22,418.52-390.22s418.4,175.05,418.4,390.22c0,117.9-56.12,227.6-152.29,301.38Z"/>
+            <path fill="#fff" d="M850.41,470.92c-187,0-338.53,138.93-338.53,310.29,0,106.46,58.49,200.38,147.54,256.26v192.36h377.07v-189.37c91.79-55.52,152.37-150.9,152.37-259.25,0-171.36-151.53-310.29-338.46-310.29Z"/>
+          </svg>
+        </div>
+        <span class="nav__logo-text">FRANK RICCI DESIGN</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="services.html" class="nav__link active">Services</a></li>
+        <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="academy.html" class="nav__link">Academy</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav__cta">Get a Quote</a>
+      <button class="nav__hamburger" id="navToggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="navMobile">
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="portfolio.html" class="nav__link">Portfolio</a>
+    <a href="academy.html" class="nav__link">Academy</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+    <a href="contact.html" class="btn btn--primary" style="align-self:flex-start;margin-top:8px">Get a Quote</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero__eyebrow">Services & Pricing</div>
+      <h1 class="page-hero__title">Services &amp;<br>Pricing</h1>
+      <p class="page-hero__subtitle">Every project starts with a conversation. Here's what I offer and what it costs.</p>
+    </div>
+  </section>
+
+  <!-- SERVICE 1 — WRAP DESIGN -->
+  <div class="container" id="wrap-design">
+    <div class="service-section">
+      <div class="service-section__inner">
+        <div class="service-section__meta">
+          <div class="service-section__num">01</div>
+          <h2 class="service-section__title">Custom Wrap Design</h2>
+          <p class="service-section__intro">Full vehicle wrap design — from initial concept to print-ready vector files. Every project follows the FRD methodology: vehicle study, reference analysis, creative development, and delivery of production files ready for your wrapper.</p>
+          <a href="contact.html?service=wrap-design" class="btn btn--primary">Request a Quote →</a>
+        </div>
+        <div>
+          <div class="section__eyebrow">What's Included</div>
+          <ul class="included-list">
+            <li>Initial consultation and creative brief</li>
+            <li>Vehicle-specific design development</li>
+            <li>Up to 3 revision rounds</li>
+            <li>Print-ready files (AI/PDF, with cut lines and bleed)</li>
+            <li>7-view render package (3/4 front, lateral, top, 3/4 rear, opposite lateral, front, rear)</li>
+          </ul>
+          <div class="section__eyebrow">Pricing</div>
+          <table class="pricing-table">
+            <thead>
+              <tr>
+                <th>Project Type</th>
+                <th>Starting From</th>
+                <th>Typical Range</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Partial wrap / accent graphics</td><td>€800</td><td style="color:var(--gray)">€800 — €1,500</td></tr>
+              <tr><td>Full wrap — single vehicle</td><td>€1,500</td><td style="color:var(--gray)">€1,500 — €3,500</td></tr>
+              <tr><td>Race livery / showcase build</td><td>€2,500</td><td style="color:var(--gray)">€2,500 — €6,000+</td></tr>
+              <tr><td>Fleet graphics (per vehicle, 3+ units)</td><td>€600</td><td style="color:var(--gray)">€600 — €1,200</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:13px;color:var(--gray);line-height:1.6">Pricing depends on vehicle complexity, design scope, and number of sponsors/elements. Every project receives a detailed quote before work begins.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 2 — CONSULTATION -->
+  <div class="container">
+    <div class="service-section" id="consultation">
+      <div class="service-section__inner">
+        <div class="service-section__meta">
+          <div class="service-section__num">02</div>
+          <h2 class="service-section__title">Design Consultation</h2>
+          <p class="service-section__intro">One-on-one sessions for designers, wrap shops, or clients who want expert input on their project. I review your concept, reference, or work-in-progress and give you direct feedback based on the FRD methodology.</p>
+          <div class="section__eyebrow" style="margin-top:24px">Price</div>
+          <div style="font-family:var(--font-display);font-size:48px;color:var(--dark);line-height:1;margin-bottom:4px">€150</div>
+          <div style="font-size:13px;color:var(--gray);margin-bottom:24px">per session</div>
+          <a href="contact.html?service=consultation" class="btn btn--primary">Book a Session →</a>
+        </div>
+        <div>
+          <div class="section__eyebrow">Format</div>
+          <ul class="included-list">
+            <li>30-minute video call</li>
+            <li>Written follow-up with notes and suggestions</li>
+            <li>File review included (send your files before the session)</li>
+          </ul>
+          <div style="background:var(--light);padding:24px;margin-top:24px;border-left:3px solid var(--red)">
+            <p style="font-size:14px;line-height:1.7;color:#555">Perfect for wrap designers looking to level up, wrap shops wanting input on client projects, or clients who want to understand the design before committing to a full project.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 3 — DIGITAL PRODUCTS -->
+  <div class="container">
+    <div class="service-section" id="digital-products">
+      <div class="service-section__inner">
+        <div class="service-section__meta">
+          <div class="service-section__num">03</div>
+          <h2 class="service-section__title">Digital Products</h2>
+          <p class="service-section__intro">Design resources built for wrap professionals. High-resolution textures, templates, and graphic elements — created from real production work, not stock generators.</p>
+          <div class="section__eyebrow" style="margin-top:24px">Starting From</div>
+          <div style="font-family:var(--font-display);font-size:48px;color:var(--dark);line-height:1;margin-bottom:4px">€19</div>
+          <div style="font-size:13px;color:var(--gray);margin-bottom:24px">per pack</div>
+          <a href="contact.html?service=digital-products" class="btn btn--outline-dark">Browse Products →</a>
+        </div>
+        <div>
+          <div class="section__eyebrow">Available Now</div>
+          <ul class="included-list">
+            <li>Forged carbon fiber textures (seamless, 300dpi, multiple colorways)</li>
+            <li>More products coming soon</li>
+          </ul>
+          <div style="background:var(--light);padding:24px;margin-top:24px">
+            <p style="font-size:13px;color:var(--gray);font-family:var(--font-mono);letter-spacing:.04em">FORGE NOTE: This section will expand as the digital product catalogue grows. New products will be added progressively.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 4 — ACADEMY TEASER -->
+  <div class="container">
+    <div class="service-section">
+      <div class="service-section__inner">
+        <div class="service-section__meta">
+          <div class="service-section__num">04</div>
+          <h2 class="service-section__title">FRD Academy</h2>
+          <p class="service-section__intro">The world's first and only structured course on vehicle wrap design. Not installation — design. Built on a proprietary platform with an AI tutor that follows your progress.</p>
+          <div style="font-family:var(--font-mono);font-size:12px;color:var(--gray);margin-bottom:8px">6 modules · 24 lessons · 4 languages · AI-powered</div>
+          <div style="font-family:var(--font-display);font-size:48px;color:var(--dark);line-height:1;margin-bottom:4px">€197</div>
+          <div style="font-size:13px;color:var(--red);font-weight:600;margin-bottom:24px">Early Bird — limited spots</div>
+          <a href="academy.html" class="btn btn--primary">Explore the Academy →</a>
+        </div>
+        <div>
+          <div style="background:var(--dark);padding:32px;color:var(--white)">
+            <div class="section__eyebrow" style="color:var(--red)">Why This Exists</div>
+            <p style="font-size:15px;line-height:1.75;color:rgba(255,255,255,.7);margin-bottom:20px">There are courses on how to apply vinyl. How to squeegee. How to heat. But when it comes to actually designing a vehicle wrap — the concept, the layout, the visual strategy — there's nothing.</p>
+            <p style="font-size:15px;line-height:1.75;color:rgba(255,255,255,.7)">The design side of the industry has no education system. Until now.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS (Stripe compliance) -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section__eyebrow" style="color:var(--red)">Process</div>
+      <h2 class="section__title" style="color:var(--white)">How It Works</h2>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step__num">01</div>
+          <div class="how-step__title">Get in touch</div>
+          <p class="how-step__body">Tell me about your project or what you need. Fill out the contact form or reach me directly on WhatsApp.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step__num">02</div>
+          <div class="how-step__title">Receive a quote</div>
+          <p class="how-step__body">I'll send you a detailed proposal with pricing and timeline. No surprises, no hidden costs.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step__num">03</div>
+          <div class="how-step__title">Approve and pay</div>
+          <p class="how-step__body">Secure payment via Stripe. 50% upfront, 50% on delivery (projects over €1,000). Full payment for services under €1,000. Invoices provided.</p>
+        </div>
+        <div class="how-step">
+          <div class="how-step__num">04</div>
+          <div class="how-step__title">I design, you drive</div>
+          <p class="how-step__body">Regular updates during the process. Final files delivered digitally. Production-ready and ready to print.</p>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:32px;font-size:13px;color:rgba(255,255,255,.4);font-family:var(--font-mono)">All payments processed securely through Stripe. Invoices provided for all transactions.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Frank Ricci Design</div>
+          <div class="footer__brand-payoff">Extreme Thinking.</div>
+          <a href="mailto:frankriccidesign@gmail.com" style="color:rgba(255,255,255,0.6);font-size:14px">frankriccidesign@gmail.com</a>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <nav class="footer__nav">
+            <a href="../index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="academy.html">Academy</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <div class="footer__connect">
+            <a href="https://www.instagram.com/frankriccidesign" target="_blank" rel="noopener">Instagram</a>
+            <a href="#" target="_blank" rel="noopener">Facebook</a>
+            <a href="#" target="_blank" rel="noopener">TikTok</a>
+            <a href="#" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Frank Ricci Design — P.IVA IT04191270984 — All rights reserved.</span>
+        <span>Secure payments via Stripe.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

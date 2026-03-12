@@ -1,747 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Frank Ricci Design - Automotive Architecture & Design. Bodykit design, wrap design, and design consulting.">
-    <meta property="og:title" content="Frank Ricci Design — Automotive Architecture">
-    <meta property="og:description" content="I don't modify cars. I redesign the language they speak.">
-    <meta property="og:image" content="https://frankriccidesign.com/assets/img/hero.jpg">
-    <meta property="og:url" content="https://frankriccidesign.com">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <title>Frank Ricci Design — Automotive Architecture & Design Services</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="/assets/css/vars.css">
-    <link rel="stylesheet" href="/assets/css/nav.css">
-    <link rel="stylesheet" href="/assets/css/components.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--bg);
-            color: var(--white);
-            overflow-x: hidden;
-        }
-
-        /* Noise overlay effect */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" /><feColorMatrix in="noise" type="saturate" values="0" /></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.03"/></svg>');
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Hero section */
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            z-index: 10;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(30, 30, 30, 0.7) 0%, rgba(204, 20, 23, 0.1) 100%);
-            z-index: 2;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('/assets/img/hero.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
-
-        .hero-accent {
-            position: absolute;
-            top: 50%;
-            right: -10%;
-            width: 60%;
-            height: 200px;
-            background-color: var(--red);
-            transform: skew(-20deg) translateY(-50%);
-            z-index: 1;
-            opacity: 0.8;
-        }
-
-        .hero-counter {
-            position: absolute;
-            top: 80px;
-            right: 40px;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--red);
-            writing-mode: vertical-rl;
-            transform: rotate(180deg);
-            z-index: 5;
-            letter-spacing: 2px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: left;
-            max-width: 90%;
-            width: 100%;
-            padding: 0 40px;
-        }
-
-        .hero-eyebrow {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--grey);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-            animation: slideUp 0.8s ease-out forwards;
-            opacity: 0;
-            animation-delay: 0.2s;
-        }
-
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 8rem);
-            font-weight: 700;
-            line-height: 0.95;
-            margin-bottom: 20px;
-            animation: slideUp 0.8s ease-out forwards;
-            opacity: 0;
-            animation-delay: 0.4s;
-        }
-
-        .hero-title .red {
-            color: var(--red);
-        }
-
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--grey);
-            max-width: 600px;
-            margin-bottom: 40px;
-            line-height: 1.6;
-            animation: slideUp 0.8s ease-out forwards;
-            opacity: 0;
-            animation-delay: 0.6s;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            animation: slideUp 0.8s ease-out forwards;
-            opacity: 0;
-            animation-delay: 0.8s;
-        }
-
-        .scroll-hint {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: var(--grey);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Services preview section */
-        .services-preview {
-            padding: 100px 40px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 60px;
-        }
-
-        .section-label {
-            font-family: var(--font-mono);
-            font-size: 0.6rem;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .section-label::after {
-            content: '';
-            display: inline-block;
-            width: 40px;
-            height: 1px;
-            background-color: var(--red);
-            margin-left: 15px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .service-card {
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .service-card:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: var(--red);
-        }
-
-        .service-number {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            color: var(--red);
-            margin-bottom: 20px;
-            line-height: 1;
-        }
-
-        .service-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        .service-description {
-            color: var(--grey);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .service-arrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--red);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-        }
-
-        .service-arrow::after {
-            content: '→';
-            font-size: 1.2rem;
-        }
-
-        /* Featured project section */
-        .featured-project {
-            padding: 100px 40px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .featured-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .featured-image {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 16 / 9;
-            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
-        }
-
-        .featured-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .featured-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .featured-text h3 {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .featured-text p {
-            color: var(--grey);
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .featured-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--red);
-            text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: gap 0.3s ease;
-        }
-
-        .featured-link:hover {
-            gap: 15px;
-        }
-
-        /* About strip */
-        .about-strip {
-            padding: 80px 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .about-left h2 {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            line-height: 1.1;
-            font-weight: 700;
-        }
-
-        .about-left .red {
-            color: var(--red);
-        }
-
-        .about-right {
-            color: var(--grey);
-            line-height: 1.8;
-        }
-
-        .about-right p {
-            margin-bottom: 20px;
-        }
-
-        .about-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--red);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: gap 0.3s ease;
-        }
-
-        .about-link:hover {
-            gap: 12px;
-        }
-
-        /* Academy teaser */
-        .academy-teaser {
-            background: linear-gradient(135deg, rgba(204, 20, 23, 0.1) 0%, rgba(50, 50, 50, 0.5) 100%);
-            padding: 100px 40px;
-            position: relative;
-            z-index: 10;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .academy-content {
-            max-width: 800px;
-        }
-
-        .academy-teaser h2 {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-
-        .academy-teaser p {
-            color: var(--grey);
-            margin-bottom: 35px;
-            line-height: 1.7;
-            font-size: 1.05rem;
-        }
-
-        /* Contact strip */
-        .contact-strip {
-            padding: 80px 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .contact-left h2 {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            line-height: 1.1;
-            font-weight: 700;
-        }
-
-        .contact-left .red {
-            color: var(--red);
-        }
-
-        .contact-right {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .contact-email {
-            font-size: 1.3rem;
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-email:hover {
-            color: var(--red);
-        }
-
-        .btn-primary {
-            display: inline-block;
-            padding: 15px 35px;
-            background-color: var(--red);
-            color: var(--white);
-            text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            width: fit-content;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--white);
-            color: var(--red);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-counter {
-                top: 40px;
-                right: 20px;
-                font-size: 0.7rem;
-            }
-
-            .hero-content {
-                padding: 0 20px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-content,
-            .about-strip,
-            .contact-strip {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .featured-image {
-                order: -1;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .services-preview,
-            .featured-project,
-            .about-strip,
-            .academy-teaser,
-            .contact-strip {
-                padding: 60px 20px;
-            }
-        }
-    </style>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org/",
-        "@type": "LocalBusiness",
-        "name": "Frank Ricci Design",
-        "image": "https://frankriccidesign.com/assets/img/hero.jpg",
-        "description": "Automotive architecture and design services including bodykit design, wrap design, and design consulting.",
-        "url": "https://frankriccidesign.com",
-        "telephone": "+39-000-000-0000",
-        "email": "frankriccidesign@gmail.com",
-        "priceRange": "€750-€3500",
-        "areaServed": "Europe",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Italy",
-            "addressCountry": "IT"
-        },
-        "sameAs": [
-            "https://instagram.com/frankriccidesign",
-            "https://behance.net/frankriccidesign"
-        ],
-        "offers": [
-            {
-                "@type": "Offer",
-                "name": "Bodykit & Extensions Design",
-                "description": "Full aero packages designed from scratch",
-                "price": "3500",
-                "priceCurrency": "EUR"
-            },
-            {
-                "@type": "Offer",
-                "name": "Wrap Design",
-                "description": "Liveries and full-wrap concepts",
-                "price": "750",
-                "priceCurrency": "EUR"
-            },
-            {
-                "@type": "Offer",
-                "name": "Design Consulting",
-                "description": "Strategic design direction and brand identity",
-                "price": "150",
-                "priceCurrency": "EUR",
-                "unitText": "hour"
-            }
-        ]
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frank Ricci Design — Automotive Wrap Design Studio</title>
+  <meta name="description" content="Professional vehicle wrap design, digital products, and the world's first wrap design course. Based in Italy, working across Europe.">
+  <meta property="og:title" content="Frank Ricci Design — Automotive Wrap Design Studio">
+  <meta property="og:description" content="Professional vehicle wrap design, digital products, and the world's first wrap design course. Based in Italy, working across Europe.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://frankriccidesign.com">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://frankriccidesign.com/assets/img/og-main.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Frank Ricci Design">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Frank Ricci Design — Automotive Wrap Design Studio">
+  <meta name="twitter:description" content="Professional vehicle wrap design, digital products, and the world's first wrap design course.">
+  <meta name="twitter:image" content="https://frankriccidesign.com/assets/img/og-main.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/global.css">
+
+  <style>
+    /* ===== HOME PAGE STYLES ===== */
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      background: var(--dark);
+      overflow: hidden;
     }
-    </script>
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(29,29,27,0.92) 0%, rgba(29,29,27,0.6) 60%, rgba(204,21,23,0.12) 100%);
+      z-index: 1;
+    }
+    /* Diagonal red accent */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--red);
+      z-index: 3;
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      padding-top: var(--nav-h);
+    }
+    .hero__text {
+      max-width: 680px;
+    }
+    .hero__headline {
+      font-family: var(--font-display);
+      font-size: clamp(64px, 9vw, 128px);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+    .hero__subtitle {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 520px;
+    }
+    .hero__ctas {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .hero__ctas .btn--text {
+      color: rgba(255,255,255,0.65);
+      border-color: transparent;
+      font-size: 15px;
+    }
+    .hero__ctas .btn--text:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .hero__scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    .hero__scroll-hint span {
+      display: block;
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      margin: 0 auto;
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.5; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* Intro */
+    .intro__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .intro__body {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .intro__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .intro__placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #e8e8e6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      text-align: center;
+      color: #888;
+      font-size: 13px;
+      font-family: var(--font-mono);
+    }
+
+    /* Services preview */
+    .services-preview__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .service-card {
+      padding: 40px 36px;
+      background: var(--white);
+      border: 1px solid #e8e8e6;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+    }
+    .service-card:hover {
+      border-color: var(--red);
+    }
+    .service-card--featured {
+      background: var(--dark);
+      color: var(--white);
+    }
+    .service-card--featured .service-card__body {
+      color: rgba(255,255,255,0.6);
+    }
+    .service-card--featured .service-card__link {
+      color: var(--red);
+    }
+    .service-card__tag {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .service-card__icon {
+      margin-bottom: 24px;
+    }
+    .service-card__title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .service-card--featured .service-card__title {
+      color: var(--white);
+    }
+    .service-card__body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #666;
+      margin-bottom: 24px;
+    }
+    .service-card__link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .service-card__link:hover {
+      color: var(--red);
+    }
+
+    /* Academy banner */
+    .academy-banner {
+      padding: 96px 0;
+    }
+    .academy-banner__inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 64px;
+      align-items: center;
+    }
+    .academy-banner__title {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 5vw, 72px);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .academy-banner__body {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+    .academy-banner__pricing {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .academy-banner__price {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--white);
+    }
+    .academy-banner__price em {
+      font-style: normal;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--red);
+      letter-spacing: 0.04em;
+      margin-left: 4px;
+    }
+    .academy-banner__price-full {
+      font-size: 14px;
+      color: rgba(255,255,255,0.35);
+      text-decoration: line-through;
+    }
+    .academy-banner__badge-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 32px 40px;
+    }
+    .academy-banner__badge-num {
+      font-family: var(--font-display);
+      font-size: 56px;
+      color: var(--red);
+      line-height: 1;
+    }
+    .academy-banner__badge-label {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
+    .academy-banner__badge-divider {
+      width: 32px;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin-bottom: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .intro__inner,
+      .academy-banner__inner {
+        grid-template-columns: 1fr;
+      }
+      .intro__visual { display: none; }
+      .services-preview__grid {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+      .academy-banner__badge { display: none; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Frank Ricci Design",
+    "url": "https://frankriccidesign.com",
+    "description": "Professional automotive wrap design studio. Custom liveries, digital products, and the FRD Academy.",
+    "email": "frankriccidesign@gmail.com",
+    "address": { "@type": "PostalAddress", "addressCountry": "IT" },
+    "areaServed": "Europe",
+    "vatID": "IT04191270984",
+    "priceRange": "€€"
+  }
+  </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="/" class="nav-logo">FRD<span class="logo-dot">●</span></a>
-            <div class="nav-links">
-                <a href="#services">Services</a>
-                <a href="/pages/portfolio.html">Work</a>
-                <a href="/pages/academy.html">Academy</a>
-                <a href="/pages/contatti.html">Contact</a>
-            </div>
-            <a href="/pages/contatti.html" class="btn-primary nav-cta">Let's Talk</a>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="Frank Ricci Design Home">
+        <div class="nav__logo-stamp">
+          <svg viewBox="0 0 1700.79 1700.79" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <style>.ns2{fill:#cc1517}</style>
+            <path class="ns2" d="M850.38,248.16c-332.59,0-602.2,269.64-602.2,602.23s269.6,602.23,602.2,602.23,602.22-269.64,602.22-602.23S1182.96,248.16,850.38,248.16ZM1116.51,1082.59l-.04,147.27c0,44.15-35.8,79.92-79.98,79.92h-377.07c-44.14,0-79.94-35.77-79.94-79.94v-151.07c-93.17-73.72-147.6-182.04-147.6-297.56,0-215.17,187.73-390.22,418.52-390.22s418.4,175.05,418.4,390.22c0,117.9-56.12,227.6-152.29,301.38Z"/>
+            <path fill="#fff" d="M850.41,470.92c-187,0-338.53,138.93-338.53,310.29,0,106.46,58.49,200.38,147.54,256.26v192.36h377.07v-189.37c91.79-55.52,152.37-150.9,152.37-259.25,0-171.36-151.53-310.29-338.46-310.29Z"/>
+          </svg>
         </div>
-    </nav>
+        <span class="nav__logo-text">FRANK RICCI DESIGN</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="pages/services.html" class="nav__link">Services</a></li>
+        <li><a href="pages/portfolio.html" class="nav__link">Portfolio</a></li>
+        <li><a href="pages/academy.html" class="nav__link">Academy</a></li>
+        <li><a href="pages/contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="pages/contact.html" class="nav__cta">Get a Quote</a>
+      <button class="nav__hamburger" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav__mobile" id="navMobile">
+    <a href="pages/services.html" class="nav__link">Services</a>
+    <a href="pages/portfolio.html" class="nav__link">Portfolio</a>
+    <a href="pages/academy.html" class="nav__link">Academy</a>
+    <a href="pages/contact.html" class="nav__link">Contact</a>
+    <a href="pages/contact.html" class="btn btn--primary" style="align-self:flex-start;margin-top:8px">Get a Quote</a>
+  </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-accent"></div>
-        <div class="hero-counter">ITA / 001</div>
-
-        <div class="hero-content">
-            <div class="hero-eyebrow">Frank Ricci Design — Extreme Thinking.</div>
-            <h1 class="hero-title">Automotive <span class="red">Architecture</span>.</h1>
-            <p class="hero-subtitle">I don't modify cars. I redesign the language they speak.</p>
-            <div class="hero-cta">
-                <a href="/pages/portfolio.html" class="btn-primary">See the work</a>
-                <div class="scroll-hint">
-                    <span>Scroll</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 15L10 5M10 15L7 12M10 15L13 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__content container">
+      <div class="hero__text">
+        <h1 class="hero__headline">Design Is<br>Everything.</h1>
+        <p class="hero__subtitle">Frank Ricci Design — Extreme Thinking.</p>
+        <p class="hero__subtitle">Automotive wrap design, digital products, and a methodology built over a decade of pushing boundaries.</p>
+        <div class="hero__ctas">
+          <a href="pages/portfolio.html" class="btn btn--primary">View Portfolio</a>
+          <a href="pages/contact.html" class="btn--text">Get in touch →</a>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="hero__scroll-hint" aria-hidden="true"><span></span></div>
+  </section>
 
-    <!-- Services Preview -->
-    <section class="services-preview" id="services">
-        <div class="section-header">
-            <span class="section-label">What I do</span>
+  <!-- CREDIBILITY STRIP -->
+  <div class="cred-strip">
+    <div class="cred-strip__inner">
+      <div class="cred-strip__item">
+        <div class="cred-strip__dot"></div>
+        <span class="cred-strip__text">Best Livery — WrapMyRide 2024</span>
+      </div>
+      <div class="cred-strip__item">
+        <div class="cred-strip__dot"></div>
+        <span class="cred-strip__text">Top 4 Wrap Designer — SEMA 2025</span>
+      </div>
+      <div class="cred-strip__item">
+        <div class="cred-strip__dot"></div>
+        <span class="cred-strip__text">10+ Years in Automotive Design</span>
+      </div>
+      <div class="cred-strip__item">
+        <div class="cred-strip__dot"></div>
+        <span class="cred-strip__text">Clients in 5+ Countries</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="section section--light intro" id="about">
+    <div class="container intro__inner">
+      <div class="intro__text">
+        <div class="section__eyebrow">Who I Am</div>
+        <h2 class="section__title">Extreme<br>Thinking.</h2>
+        <div class="divider"></div>
+        <p class="intro__body">I'm Frank Ricci. For over ten years, I've been designing vehicle wraps for clients across Europe — from street cars to showcase builds, from race liveries to full fleet graphics.</p>
+        <p class="intro__body">What I do is different from what you see everywhere else. I don't apply vinyl. I design what goes on it. Every project starts with a method: study the vehicle, read the reference, break it apart, build something new.</p>
+        <p class="intro__body">Today, Frank Ricci Design is more than a studio. It's a design methodology, a learning platform, and a growing ecosystem for anyone serious about automotive wrap design.</p>
+        <a href="pages/services.html" class="btn btn--outline-dark" style="margin-top:32px">See What I Do</a>
+      </div>
+      <div class="intro__visual" aria-hidden="true">
+        <div class="intro__placeholder">
+          <svg viewBox="0 0 1700.79 1700.79" xmlns="http://www.w3.org/2000/svg" width="120" height="120">
+            <circle cx="850" cy="850" r="600" fill="#e0e0de"/>
+            <path fill="#cc1517" d="M850.41,470.92c-187,0-338.53,138.93-338.53,310.29,0,106.46,58.49,200.38,147.54,256.26v192.36h377.07v-189.37c91.79-55.52,152.37-150.9,152.37-259.25,0-171.36-151.53-310.29-338.46-310.29Z"/>
+          </svg>
+          <p style="padding:0 24px;color:#aaa">Portrait of Frank Ricci<br><em>(image coming soon)</em></p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-number">01</div>
-                <h3 class="service-title">Bodykit & Extensions</h3>
-                <p class="service-description">Full aero packages designed from scratch. Custom extensions, fenders, bumpers, and side skirts — every line drawn for your specific platform.</p>
-                <a href="/pages/servizi.html#bodykit" class="service-arrow">Learn more</a>
-            </div>
+  <!-- SERVICES PREVIEW -->
+  <section class="section services-preview">
+    <div class="container">
+      <div class="section__header">
+        <div class="section__eyebrow">Services</div>
+        <h2 class="section__title">What I Do</h2>
+      </div>
+      <div class="services-preview__grid">
 
-            <div class="service-card">
-                <div class="service-number">02</div>
-                <h3 class="service-title">Wrap Design</h3>
-                <p class="service-description">Liveries and full-wrap concepts built to communicate. Race liveries, commercial fleet branding, personal statements — every surface intentional.</p>
-                <a href="/pages/servizi.html#wrap-design" class="service-arrow">Learn more</a>
-            </div>
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+              <rect x="4" y="16" width="40" height="20" rx="3" stroke="#cc1517" stroke-width="2.5"/>
+              <path d="M10 16v-3a3 3 0 013-3h22a3 3 0 013 3v3" stroke="#cc1517" stroke-width="2.5"/>
+              <circle cx="14" cy="36" r="3.5" fill="#cc1517"/>
+              <circle cx="34" cy="36" r="3.5" fill="#cc1517"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Wrap Design</h3>
+          <p class="service-card__body">Custom liveries, race graphics, full wraps. From concept to print-ready files. Every surface intentional.</p>
+          <a href="pages/services.html#wrap-design" class="service-card__link">View services →</a>
+        </article>
 
-            <div class="service-card">
-                <div class="service-number">03</div>
-                <h3 class="service-title">Design Consulting</h3>
-                <p class="service-description">Strategic design direction for brands, builders, and teams who need vision — not just execution. From brand identity to product strategy.</p>
-                <a href="/pages/servizi.html#consulting" class="service-arrow">Learn more</a>
-            </div>
+        <article class="service-card">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+              <rect x="6" y="6" width="36" height="36" rx="3" stroke="#cc1517" stroke-width="2.5"/>
+              <rect x="12" y="18" width="24" height="3" rx="1" fill="#cc1517"/>
+              <rect x="12" y="26" width="16" height="3" rx="1" fill="#cc1517"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Digital Products</h3>
+          <p class="service-card__body">High-resolution textures, templates, and graphic elements created from real production work.</p>
+          <a href="pages/services.html#digital-products" class="service-card__link">View products →</a>
+        </article>
+
+        <article class="service-card service-card--featured">
+          <span class="service-card__tag tag tag--red">Live Now</span>
+          <div class="service-card__icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+              <path d="M24 6l4 10h11l-9 6.5 3.5 10.5L24 27l-9.5 6 3.5-10.5L9 16h11L24 6z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">FRD Academy</h3>
+          <p class="service-card__body">The only wrap design course in the world. Methodology, not tutorials. AI-powered learning.</p>
+          <a href="pages/academy.html" class="service-card__link">Learn more →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMY BANNER -->
+  <section class="academy-banner section--dark">
+    <div class="container academy-banner__inner">
+      <div class="academy-banner__text">
+        <div class="section__eyebrow" style="color:var(--red)">FRD Academy</div>
+        <h2 class="academy-banner__title">Learn Wrap Design.<br>For Real.</h2>
+        <p class="academy-banner__body">The world's first structured course on vehicle wrap design. Not installation — design methodology. Built by a Top 4 SEMA designer, powered by AI.</p>
+        <div class="academy-banner__pricing">
+          <span class="academy-banner__price">€197 <em>Early Bird</em></span>
+          <span class="academy-banner__price-full">€249 full price</span>
         </div>
-
-        <a href="/pages/servizi.html" class="service-arrow" style="font-size: 0.9rem;">View all services</a>
-    </section>
-
-    <!-- Featured Project -->
-    <section class="featured-project">
-        <div class="section-header">
-            <span class="section-label">Featured project</span>
+        <a href="pages/academy.html" class="btn btn--primary">Explore the Academy</a>
+      </div>
+      <div class="academy-banner__badge">
+        <div class="academy-banner__badge-inner">
+          <div class="academy-banner__badge-num">6</div>
+          <div class="academy-banner__badge-label">Modules</div>
+          <div class="academy-banner__badge-divider"></div>
+          <div class="academy-banner__badge-num">24</div>
+          <div class="academy-banner__badge-label">Lessons</div>
+          <div class="academy-banner__badge-divider"></div>
+          <div class="academy-banner__badge-num">4</div>
+          <div class="academy-banner__badge-label">Languages</div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="featured-content">
-            <div class="featured-image">
-                <img src="/assets/img/h2-hero.jpg" alt="Hummer H2 Law Enforcement">
-            </div>
-            <div class="featured-text">
-                <h3>Hummer H2 Law Enforcement</h3>
-                <p>A complete architectural redesign for a specialized law enforcement variant. Every surface reimagined for function and presence.</p>
-                <a href="/pages/portfolio.html" class="featured-link">View portfolio</a>
-            </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand-name">Frank Ricci Design</div>
+          <div class="footer__brand-payoff">Extreme Thinking.</div>
+          <a href="mailto:frankriccidesign@gmail.com" style="color:rgba(255,255,255,0.6);font-size:14px">frankriccidesign@gmail.com</a>
         </div>
-    </section>
-
-    <!-- About Strip -->
-    <section class="about-strip">
-        <div class="about-left">
-            <h2>I build what others <span class="red">sketch</span>.</h2>
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <nav class="footer__nav">
+            <a href="/">Home</a>
+            <a href="pages/services.html">Services</a>
+            <a href="pages/portfolio.html">Portfolio</a>
+            <a href="pages/academy.html">Academy</a>
+            <a href="pages/contact.html">Contact</a>
+          </nav>
         </div>
-        <div class="about-right">
-            <p>Design is a discipline. A language. For 10+ years, I've translated ideas into precision — from concept sketches to production-ready deliverables.</p>
-            <p>Every project is an architecture. Every line serves a purpose. I don't do generic. I don't do safe. I do extreme thinking applied with engineering rigor.</p>
-            <a href="/pages/about.html" class="about-link">Full story →</a>
+        <div>
+          <div class="footer__col-title">Connect</div>
+          <div class="footer__connect">
+            <a href="https://www.instagram.com/frankriccidesign" target="_blank" rel="noopener">Instagram</a>
+            <a href="#" target="_blank" rel="noopener">Facebook</a>
+            <a href="#" target="_blank" rel="noopener">TikTok</a>
+            <a href="#" target="_blank" rel="noopener">YouTube</a>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Frank Ricci Design — P.IVA IT04191270984 — All rights reserved.</span>
+        <span>Secure payments via Stripe.</span>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Academy Teaser -->
-    <section class="academy-teaser">
-        <div class="academy-content">
-            <h2>Learn the method.</h2>
-            <p>The Frank Ricci Academy teaches automotive design strategy, not just software. Learn how to think like an architect, not a renderer. From briefing to delivery — the complete method.</p>
-            <a href="/pages/academy.html" class="btn-primary">Explore Academy</a>
-        </div>
-    </section>
-
-    <!-- Contact Strip -->
-    <section class="contact-strip">
-        <div class="contact-left">
-            <h2>Let's build <span class="red">something</span>.</h2>
-        </div>
-        <div class="contact-right">
-            <a href="mailto:frankriccidesign@gmail.com" class="contact-email">frankriccidesign@gmail.com</a>
-            <a href="/pages/contatti.html" class="btn-primary">Start a project</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">Frank Ricci <span class="red">Design</span></div>
-                <p class="footer-tagline">Extreme Thinking.</p>
-            </div>
-
-            <div class="footer-section">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/pages/servizi.html">Services</a></li>
-                    <li><a href="/pages/portfolio.html">Work</a></li>
-                    <li><a href="/pages/academy.html">Academy</a></li>
-                    <li><a href="/pages/contatti.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Social</h4>
-                <ul>
-                    <li><a href="https://instagram.com/frankriccidesign" target="_blank">Instagram</a></li>
-                    <li><a href="https://behance.net/frankriccidesign" target="_blank">Behance</a></li>
-                    <li><a href="https://linkedin.com/in/frankriccidesign" target="_blank">LinkedIn</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p><a href="mailto:frankriccidesign@gmail.com">frankriccidesign@gmail.com</a></p>
-                <p>P.IVA: IT04191270984</p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Frank Ricci Design. All rights reserved. | P.IVA IT04191270984</p>
-        </div>
-    </footer>
-
-    <script src="/assets/js/config.js"></script>
-    <script src="/assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>

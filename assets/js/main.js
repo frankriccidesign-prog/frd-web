@@ -41,37 +41,39 @@ function initScrollReveal() {
    ======================================== */
 
 function initMobileMenu() {
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenuMobile = document.querySelector('.nav-menu-mobile');
+  // Support both old class-based selectors and new ID-based selectors (FRD site)
+  const navToggle = document.getElementById('navToggle') || document.querySelector('.nav-toggle');
+  const navMenuMobile = document.getElementById('navMobile') || document.querySelector('.nav-menu-mobile');
 
   if (!navToggle || !navMenuMobile) return;
 
   // Toggle menu on hamburger click
   navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navMenuMobile.classList.toggle('active');
+    const isOpen = navMenuMobile.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
 
     // Prevent body scroll when menu is open
-    document.body.style.overflow = navMenuMobile.classList.contains('active')
-      ? 'hidden'
-      : '';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
   // Close menu when a link is clicked
   const menuLinks = navMenuMobile.querySelectorAll('a');
   menuLinks.forEach((link) => {
     link.addEventListener('click', () => {
-      navToggle.classList.remove('active');
-      navMenuMobile.classList.remove('active');
+      navMenuMobile.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   });
 
   // Close menu on escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenuMobile.classList.contains('active')) {
-      navToggle.classList.remove('active');
-      navMenuMobile.classList.remove('active');
+    if (e.key === 'Escape' && navMenuMobile.classList.contains('open')) {
+      navMenuMobile.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
   });
