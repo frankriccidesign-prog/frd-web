@@ -338,7 +338,7 @@
   padding: 0 0.75rem;
   background-color: var(--red);
   color: var(--bg);
-  border-radius: 2px;
+  border-radius: var(--radius);
   transition: all var(--transition-fast);
 }
 

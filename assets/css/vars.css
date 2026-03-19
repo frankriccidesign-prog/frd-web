@@ -55,6 +55,10 @@
   --z-nav-overlay: 999;
   --z-tooltip: 500;
 
+  /* Border Radius */
+  --radius: 5px;
+  --radius-lg: 10px;
+
   /* Breakpoints (for reference) */
   /* mobile-first: base, 640px, 1024px, 1280px */
 }
@@ -156,6 +160,7 @@ video {
   display: block;
   max-width: 100%;
   height: auto;
+  border-radius: var(--radius);
 }
 
 /* ========================================
@@ -170,6 +175,7 @@ select {
   color: var(--white);
   background-color: var(--bg-card);
   border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
   padding: var(--spacing-sm);
   transition: all var(--transition);
 }

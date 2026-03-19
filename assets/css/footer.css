@@ -164,7 +164,7 @@ footer {
   height: 40px;
   background-color: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: 2px;
+  border-radius: var(--radius);
   transition: all var(--transition-fast);
   color: var(--grey);
 }
