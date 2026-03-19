@@ -3,17 +3,24 @@
    ======================================== */
 
 :root {
-  /* Colors */
-  --bg: #1e1e1e;
-  --bg-dark: #161616;
-  --bg-card: #252525;
+  /* Colors - Dark Neumorphism */
+  --bg: #161616;
+  --bg-dark: #111111;
+  --bg-card: #1c1c1e;
   --red: #cc1417;
   --amber: #d97706;
-  --white: #f0ede8;
-  --grey: #888;
-  --grey-light: #999;
-  --grey-dark: #555;
+  --white: #ffffff;
+  --grey: #aaaaaa;
+  --grey-light: #cccccc;
+  --grey-dark: #555555;
   --border-subtle: rgba(255, 255, 255, 0.06);
+
+  /* Dark Neumorphism Shadows */
+  --shadow-light: rgba(255, 255, 255, 0.06);
+  --shadow-dark: rgba(0, 0, 0, 0.6);
+  --neumorphism: -4px -4px 10px var(--shadow-light), 4px 4px 12px var(--shadow-dark);
+  --neumorphism-hover: -6px -6px 16px rgba(255, 255, 255, 0.08), 6px 6px 20px rgba(0, 0, 0, 0.7);
+  --neumorphism-inset: inset -3px -3px 7px rgba(255, 255, 255, 0.04), inset 3px 3px 8px rgba(0, 0, 0, 0.5);
 
   /* Typography */
   --font-display: 'Bebas Neue', sans-serif;

@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="Professional vehicle wrap design, digital products, and the world's first wrap design course.">
   <meta name="twitter:image" content="https://frankriccidesign.com/assets/img/og-main.png">
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/icons/frd_icon_skull_red.svg" type="image/svg+xml">
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-75PV2FYFJY"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-75PV2FYFJY',{anonymize_ip:true});</script>
@@ -33,6 +33,33 @@
   <style>
     /* ===== HOME PAGE STYLES ===== */
 
+    /* Announcement Bar */
+    .announce-bar {
+      background: #1c1c1e;
+      padding: 8px 0;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(204, 20, 23, 0.3);
+      position: relative;
+      z-index: 1001;
+      transition: transform 0.3s ease;
+    }
+    .announce-bar.hidden {
+      transform: translateY(-100%);
+    }
+    .announce-bar__link {
+      color: var(--red);
+      text-decoration: none;
+    }
+    .announce-bar__link:hover {
+      color: #ff3333;
+    }
+    .announce-bar__arrow {
+      margin-left: 4px;
+    }
+
     /* Hero */
     .hero {
       position: relative;
@@ -40,14 +67,27 @@
       min-height: 600px;
       display: flex;
       align-items: center;
-      background: var(--dark);
+      background: url('assets/img/hero-bmw-m4.jpg') center/cover no-repeat #161616;
       overflow: hidden;
+    }
+    .hero__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .hero__video.loaded {
+      opacity: 1;
     }
     .hero__bg {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(135deg, rgba(29,29,27,0.92) 0%, rgba(29,29,27,0.6) 60%, rgba(204,21,23,0.12) 100%);
+      background: rgba(0, 0, 0, 0.5);
+      mix-blend-mode: multiply;
       z-index: 1;
     }
     /* Diagonal red accent */
@@ -156,9 +196,52 @@
     /* Services preview */
     .services-preview__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
     }
+
+    /* Dark Neumorphic Card */
+    .neu-card {
+      background: #1c1c1e;
+      border-radius: 14px;
+      padding: 40px 32px;
+      box-shadow: var(--neumorphism);
+      transition: all 0.25s ease;
+      border: none;
+    }
+    .neu-card:hover {
+      box-shadow: var(--neumorphism-hover);
+      transform: translateY(-2px);
+    }
+    .neu-card__icon {
+      color: var(--red);
+      margin-bottom: 20px;
+    }
+    .neu-card__title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+    .neu-card__body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #aaaaaa;
+      margin-bottom: 20px;
+    }
+    .neu-card__link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--red);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .neu-card__link:hover {
+      color: #ff3333;
+    }
+
+    /* Legacy service-card support */
     .service-card {
       padding: 40px 36px;
       background: var(--white);
@@ -303,10 +386,26 @@
       }
       .intro__visual { display: none; }
       .services-preview__grid {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 2px;
+        grid-template-columns: 1fr !important;
+        gap: 20px;
       }
       .academy-banner__badge { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .hero__headline {
+        font-size: 48px;
+      }
+      .services-preview__grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+      }
+      .neu-card {
+        padding: 28px 20px;
+      }
+      .neu-card__title {
+        font-size: 22px;
+      }
     }
   </style>
 
@@ -327,16 +426,21 @@
 </head>
 <body>
 
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce-bar" id="announceBar">
+    <div class="container">
+      <a href="https://academy.frankriccidesign.com" class="announce-bar__link">
+        FRD Academy is now available — Start for free <span class="announce-bar__arrow">→</span>
+      </a>
+    </div>
+  </div>
+
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="/" class="nav__logo" aria-label="Frank Ricci Design Home">
         <div class="nav__logo-stamp">
-          <svg viewBox="0 0 1700.79 1700.79" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <style>.ns2{fill:#cc1517}</style>
-            <path class="ns2" d="M850.38,248.16c-332.59,0-602.2,269.64-602.2,602.23s269.6,602.23,602.2,602.23,602.22-269.64,602.22-602.23S1182.96,248.16,850.38,248.16ZM1116.51,1082.59l-.04,147.27c0,44.15-35.8,79.92-79.98,79.92h-377.07c-44.14,0-79.94-35.77-79.94-79.94v-151.07c-93.17-73.72-147.6-182.04-147.6-297.56,0-215.17,187.73-390.22,418.52-390.22s418.4,175.05,418.4,390.22c0,117.9-56.12,227.6-152.29,301.38Z"/>
-            <path fill="#fff" d="M850.41,470.92c-187,0-338.53,138.93-338.53,310.29,0,106.46,58.49,200.38,147.54,256.26v192.36h377.07v-189.37c91.79-55.52,152.37-150.9,152.37-259.25,0-171.36-151.53-310.29-338.46-310.29Z"/>
-          </svg>
+          <img src="/assets/icons/frd_icon_skull_red.svg" alt="FRD" width="32" height="32">
         </div>
         <span class="nav__logo-text">FRANK RICCI DESIGN</span>
       </a>
@@ -344,6 +448,7 @@
         <li><a href="pages/services.html" class="nav__link">Services</a></li>
         <li><a href="pages/portfolio.html" class="nav__link">Portfolio</a></li>
         <li><a href="pages/academy.html" class="nav__link">Academy</a></li>
+        <li><a href="pages/merch.html" class="nav__link">Merch</a></li>
         <li><a href="pages/contact.html" class="nav__link">Contact</a></li>
       </ul>
       <a href="pages/contact.html" class="nav__cta">Get a Quote</a>
@@ -356,12 +461,17 @@
     <a href="pages/services.html" class="nav__link">Services</a>
     <a href="pages/portfolio.html" class="nav__link">Portfolio</a>
     <a href="pages/academy.html" class="nav__link">Academy</a>
+    <a href="pages/merch.html" class="nav__link">Merch</a>
     <a href="pages/contact.html" class="nav__link">Contact</a>
     <a href="pages/contact.html" class="btn btn--primary" style="align-self:flex-start;margin-top:8px">Get a Quote</a>
   </div>
 
   <!-- HERO -->
-  <section class="hero" style="background:url('assets/img/hero-bmw-m4.jpg') center/cover no-repeat var(--dark)">
+  <section class="hero">
+    <video class="hero__video" autoplay muted loop playsinline>
+      <source src="assets/video/frd-hero-bg.webm" type="video/webm">
+      <source src="assets/video/frd-hero-bg.mp4" type="video/mp4">
+    </video>
     <div class="hero__bg"></div>
     <div class="hero__content container">
       <div class="hero__text">
@@ -482,10 +592,10 @@
       </div>
       <div class="academy-banner__badge">
         <div class="academy-banner__badge-inner">
-          <div class="academy-banner__badge-num">6</div>
+          <div class="academy-banner__badge-num">8</div>
           <div class="academy-banner__badge-label">Modules</div>
           <div class="academy-banner__badge-divider"></div>
-          <div class="academy-banner__badge-num">24</div>
+          <div class="academy-banner__badge-num">34</div>
           <div class="academy-banner__badge-label">Lessons</div>
           <div class="academy-banner__badge-divider"></div>
           <div class="academy-banner__badge-num">4</div>
@@ -500,6 +610,7 @@
     <div class="container">
       <div class="footer__grid">
         <div>
+          <img src="assets/icons/frd_logo_sticker_legacy.svg" alt="Frank Ricci Design" class="footer__logo-legacy" style="width:120px;opacity:0.8;margin-bottom:12px">
           <div class="footer__brand-name">Frank Ricci Design</div>
           <div class="footer__brand-payoff">Extreme Thinking.</div>
           <a href="mailto:frankriccidesign@gmail.com" style="color:rgba(255,255,255,0.6);font-size:14px">frankriccidesign@gmail.com</a>
@@ -532,5 +643,27 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+
+  <script>
+    // Hero video fade-in
+    const heroVideo = document.querySelector('.hero__video');
+    if (heroVideo) {
+      heroVideo.addEventListener('canplaythrough', () => heroVideo.classList.add('loaded'));
+    }
+
+    // Announcement bar hide/show on scroll
+    let lastScrollY = 0;
+    const announceBar = document.getElementById('announceBar');
+    if (announceBar) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > lastScrollY && window.scrollY > 60) {
+          announceBar.classList.add('hidden');
+        } else {
+          announceBar.classList.remove('hidden');
+        }
+        lastScrollY = window.scrollY;
+      });
+    }
+  </script>
 </body>
 </html>
